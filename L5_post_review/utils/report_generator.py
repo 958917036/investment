@@ -6,7 +6,7 @@ L5 Report Generator（定期报告模块）
 职责：
 1. 生成每日/每周复盘报告（Markdown 格式）
 2. 包含操作回顾、持仓状态、策略有效性、冷冻状态、CPCV、参数调参建议
-3. 保存到 main/records/{date}/ 目录
+3. 报告路径返回（已迁移到 DB，file_path 可能为 None）
 """
 
 from __future__ import annotations
@@ -26,7 +26,6 @@ from logger import info, warn, error
 # ======================== 路径配置 ========================
 
 PROJECT_ROOT = Path(os.path.expanduser("~/.hermes/investment"))
-RECORDS_DIR = PROJECT_ROOT / "main" / "records"
 REVIEW_OUTPUT_DIR = PROJECT_ROOT / "main" / "config" / "review_pending"
 
 
@@ -64,7 +63,7 @@ class ReportGenerator:
     职责：
     1. 生成每日/每周复盘报告（Markdown 格式）
     2. 包含操作回顾、持仓状态、策略有效性、冷冻状态、CPCV、参数调参建议
-    3. 保存到 main/records/{date}/ 目录
+    3. 报告路径返回（已迁移到 DB，file_path 可能为 None）
     """
 
     def __init__(self, market: str = "CN"):
@@ -503,10 +502,9 @@ class ReportGenerator:
         return "\n".join(lines)
 
     def _get_report_path(self, report_date: str, report_type: str) -> Path:
-        """获取报告保存路径"""
-        records_date_dir = RECORDS_DIR / report_date
-        records_date_dir.mkdir(parents=True, exist_ok=True)
-        return records_date_dir / f"report_{report_type}.md"
+        """获取报告保存路径（已迁移到DB，此处返回临时路径）"""
+        import tempfile
+        return Path(tempfile.gettempdir()) / f"hermes_report_{report_date}_{report_type}.md"
 
     def save_report(
         self,
@@ -514,30 +512,9 @@ class ReportGenerator:
         fmt: str = "markdown"
     ) -> str:
         """
-        保存报告到文件
-
-        Args:
-            report: 报告对象
-            fmt: 保存格式（markdown / json）
-
-        Returns:
-            str: 保存的文件路径
+        保存报告到文件（已迁移到DB，此处返回 None 不写文件）
         """
-        if fmt == "markdown":
-            content = self._render_markdown(report)
-            path = self._get_report_path(report.date, report.report_type)
-            path.parent.mkdir(parents=True, exist_ok=True)
-            with open(path, "w", encoding="utf-8") as f:
-                f.write(content)
-            info("report_generator", f"报告已保存: {path}")
-            return str(path)
-        else:
-            path = self._get_report_path(report.date, f"{report.report_type}.json")
-            path.parent.mkdir(parents=True, exist_ok=True)
-            with open(path, "w", encoding="utf-8") as f:
-                json.dump(asdict(report), f, ensure_ascii=False, indent=2)
-            info("report_generator", f"报告已保存: {path}")
-            return str(path)
+        return None
 
 
 # ─── CLI 自检 ─────────────────────────────────────────────────

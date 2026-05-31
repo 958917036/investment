@@ -23,9 +23,7 @@ AI 驱动的多市场股票筛选与量化分析系统，L1→L5 全链路。
 │   ├── l5_runner.py     # L5 PipelineContext 集成入口
 │   ├── shennong.py      # 主调度器（CLI 入口）
 │   ├── db_writer.py      # 写入 platform 数据库
-│   ├── state_pool/       # 状态池（frozen/observing）
-│   ├── records/          # JSON 运行结果
-│   ├── freeze_table.json # 冷冻股表
+│   ├── freeze_table.json # 冷冻股表（L5 终审用）
 │   └── shennong-run.sh   # shell 入口
 ├── logs/                 # 日志文件（hermes.log）
 ├── testsv2/              # 测试代码（按层分组）

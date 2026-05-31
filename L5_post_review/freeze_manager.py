@@ -27,7 +27,6 @@ logger = logging.getLogger("freeze_manager")
 # ======================== 路径配置 ========================
 
 PROJECT_ROOT = Path(os.path.expanduser("~/.hermes/investment"))
-STATE_POOL_DIR = PROJECT_ROOT / "main" / "state_pool"
 
 FREEZE_TABLE_PATHS = {
     "CN": PROJECT_ROOT / "main" / "freeze_table.json",
@@ -326,58 +325,12 @@ class FreezeManager:
         return True
 
     def _create_frozen_markdown(self, record: dict) -> None:
-        """创建冷冻状态Markdown文件"""
-        frozen_dir = STATE_POOL_DIR / "frozen"
-        frozen_dir.mkdir(parents=True, exist_ok=True)
-
-        md_path = frozen_dir / f"{record['stock_code']}_{record['stock_name']}.md"
-        content = f"""# {record['stock_name']} ({record['stock_code']})
-
-## 冷冻状态
-
-- **级别**: {record['freeze_level']}
-- **冷冻到期**: {record['frozen_until']}
-- **状态**: {record['status']}
-
-## 失败原因
-
-{chr(10).join('- ' + r for r in record.get('fail_reasons', []))}
-
-## 检查记录
-
-- **检查次数**: {record.get('check_count', 0)}
-- **最后检查**: {record.get('last_checked', '')}
-"""
-        with open(md_path, "w", encoding="utf-8") as f:
-            f.write(content)
+        """创建冷冻状态Markdown文件（已迁移到DB，此处为空）"""
+        pass
 
     def _move_to_observing(self, record: dict) -> None:
-        """移动到观察池"""
-        observing_dir = STATE_POOL_DIR / "observing"
-        observing_dir.mkdir(parents=True, exist_ok=True)
-
-        # 删除冷冻文件
-        frozen_dir = STATE_POOL_DIR / "frozen"
-        frozen_md = frozen_dir / f"{record['stock_code']}_{record['stock_name']}.md"
-        if frozen_md.exists():
-            frozen_md.unlink()
-
-        # 创建观察池文件
-        md_path = observing_dir / f"{record['stock_code']}_{record['stock_name']}.md"
-        content = f"""# {record['stock_name']} ({record['stock_code']})
-
-## 观察池状态
-
-- **移出冷冻表日期**: {record.get('unfrozen_date', '')}
-- **原因**: 解冻
-
-## 历史记录
-
-- **冷冻级别**: {record.get('freeze_level', '')}
-- **检查次数**: {record.get('check_count', 0)}
-"""
-        with open(md_path, "w", encoding="utf-8") as f:
-            f.write(content)
+        """移动到观察池（已迁移到DB，此处为空）"""
+        pass
 
     def _update_state_pool(self, results: dict) -> None:
         """更新状态池"""

@@ -7,7 +7,7 @@
 1. **管道编排**：按顺序调用 L1→L2→L3→L4→L5
 2. **配置加载**：将 `config/*.json` 注入 `PipelineContext`
 3. **外部服务入口**：供 hermes-agent 和 cron 调用，提供统一的 CLI/Web 接口
-4. **结果持久化**：JSON 文件写 `records/` + DB 写入 platform 数据库
+4. **结果持久化**：写入 platform 数据库（`db_writer.py`）
 
 **main 层自身不实现任何分析/筛选/评分逻辑**，这些全部放在 L1~L5 层。
 
@@ -35,9 +35,7 @@ main/
 ├── utils/
 │   └── logger.py           # 统一日志工具（L1~L5 共用）
 ├── config/                 # 配置文件（各层配置汇总于此）
-├── records/                # JSON 运行结果（按日期归档）
-├── state_pool/             # 状态池（frozen / observing / buy_signals）
-├── freeze_table.json       # 冷冻股名单（L1~L5 共享）
+├── freeze_table.json       # 冷冻股名单（L5 终审用）
 └── shennong-run.sh         # shell 入口
 ```
 

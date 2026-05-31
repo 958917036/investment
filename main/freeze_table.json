@@ -790,6 +790,18 @@
       "signal_date": "2026-05-31",
       "reason": "l4_judge:建议买入",
       "status": "pending"
+    },
+    {
+      "stock_code": "002916",
+      "stock_name": "深南电路",
+      "judge_score": 0.563,
+      "price": 411.41,
+      "stop_loss": -0.08,
+      "take_profit": 0.2,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-31",
+      "reason": "l4_judge:建议买入",
+      "status": "pending"
     }
   ],
   "_freeze_rules": {

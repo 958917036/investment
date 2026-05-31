@@ -1,173 +1,359 @@
-[TEST] test_l1_runner ▶ START  tests=11
-[TEST] test_l1_runner::by_code(600519→贵州茅台) ▶ START
-[2026-05-31 18:18:25.423] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
-[TEST] test_l1_runner::by_code(600519→贵州茅台) ▶ END  elapsed=0.1s  status=PASS
-[TEST] test_l1_runner::by_name(茅台) ▶ START
-[2026-05-31 18:18:37.951] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时30.5s
-[2026-05-31 18:18:37.952] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
-[2026-05-31 18:18:41.150] [INFO] [by_name] [source=akshare] A股名称模糊搜索成功 - 5525 条
-[2026-05-31 18:18:41.273] [INFO] [by_name] [source=tencent] 批量获取行情成功 - 1 只
-[TEST] test_l1_runner::by_name(茅台) ▶ END  elapsed=15.9s  status=PASS
-[TEST] test_l1_runner::by_name(empty) ▶ START
-[TEST] test_l1_runner::by_name(empty) ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l1_runner::by_sector(白酒) ▶ START
-[TEST] test_l1_runner::by_sector(白酒) ▶ END  elapsed=5.2s  status=PASS
-[TEST] test_l1_runner::by_sector(not_found) ▶ START
-[2026-05-31 18:18:52.421] [ERROR] [by_sector] [source=akshare] A股板块查询失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-[TEST] test_l1_runner::by_sector(not_found) ▶ END  elapsed=6.0s  status=PASS
-[TEST] test_l1_runner::by_strategy(breakout) ▶ START
-[2026-05-31 18:18:57.324] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时19.4s
-[2026-05-31 18:18:57.324] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
-[2026-05-31 18:18:57.333] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
-[TEST] test_l1_runner::by_strategy(breakout) ▶ END  elapsed=13.1s  status=PASS
-[TEST] test_l1_runner::by_strategy(growth_momentum) ▶ START
-[2026-05-31 18:19:06.113] [INFO] [l1_runner] 开始L1选股 market=CN
-[2026-05-31 18:19:06.973] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
-[2026-05-31 18:19:06.974] [INFO] [l1_runner] L1选股完成: 1 只候选股票
-[2026-05-31 18:19:06.974] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
-[TEST] test_l1_runner::by_strategy(growth_momentum) ▶ END  elapsed=8.6s  status=PASS
-[TEST] test_l1_runner::by_strategy(garp) ▶ START
-[TEST] test_l1_runner::by_strategy(garp) ▶ END  elapsed=8.7s  status=PASS
-[TEST] test_l1_runner::by_strategy(pullback) ▶ START
-[2026-05-31 18:19:31.087] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时24.1s
-[2026-05-31 18:19:31.088] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
-[TEST] test_l1_runner::by_strategy(pullback) ▶ END  elapsed=8.6s  status=PASS
-[TEST] test_l1_runner::by_strategy(quality_value) ▶ START
-[2026-05-31 18:19:39.297] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时8.2s
-[2026-05-31 18:19:39.297] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
-[2026-05-31 18:19:39.305] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
-[TEST] test_l1_runner::by_strategy(quality_value) ▶ END  elapsed=8.7s  status=PASS
-[TEST] test_l1_runner::unknown_mode ▶ START
-[TEST] test_l1_runner::unknown_mode ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l1_runner ▶ END  passed=11 failed=0 elapsed=74.7s  status=PASS
 [TEST] test_l2_runner ▶ START  tests=9
 [TEST] test_l2_runner::CN(600519贵州茅台) ▶ START
-[2026-05-31 18:19:41.275] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
-[2026-05-31 18:19:44.094] [INFO] [l1_runner] 开始L1选股 market=CN
-[2026-05-31 18:19:44.769] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
-[2026-05-31 18:19:44.770] [INFO] [l1_runner] L1选股完成: 1 只候选股票
-[2026-05-31 18:19:44.770] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
-[2026-05-31 18:20:01.597] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
-[2026-05-31 18:20:08.130] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
-[2026-05-31 18:20:09.355] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
-[2026-05-31 18:20:09.564] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
-[2026-05-31 18:20:09.653] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
-[TEST] test_l2_runner::CN(600519贵州茅台) ▶ END  elapsed=29.3s  status=PASS
+[2026-05-31 21:08:47.326] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:09:05.679] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:09:07.929] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:09:08.825] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:09:08.992] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:09:09.117] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ END  elapsed=22.5s  status=PASS
 [TEST] test_l2_runner::HK(00700腾讯) ▶ START
-[2026-05-31 18:20:09.655] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时24.9s
-[2026-05-31 18:20:09.656] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
-[TEST] test_l2_runner::HK(00700腾讯) ▶ END  elapsed=3.7s  status=PASS
+[TEST] test_l2_runner::HK(00700腾讯) ▶ END  elapsed=2.4s  status=PASS
 [TEST] test_l2_runner::US(SMCI超微) ▶ START
-[2026-05-31 18:20:18.305] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时8.6s
-[2026-05-31 18:20:18.305] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
-[2026-05-31 18:20:18.312] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
-[2026-05-31 18:20:18.315] [INFO] [l1_runner] 开始L1选股 market=HK
-[2026-05-31 18:20:18.406] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=hk09999
-[2026-05-31 18:20:18.406] [INFO] [l1_runner] L1选股完成: 1 只候选股票
-[2026-05-31 18:20:18.406] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
-[2026-05-31 18:20:21.898] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时3.5s
-[2026-05-31 18:20:21.898] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
-[TEST] test_l2_runner::US(SMCI超微) ▶ END  elapsed=16.2s  status=PASS
+[2026-05-31 21:09:22.145] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-05-31 21:09:22.904] [INFO] [l1_runner] 开始操作: 获取股票列表: market=cn, pool=index800
+[2026-05-31 21:09:24.491] [INFO] [l1_runner] [source=akshare] 获取A股指数成分股(沪深300+中证500)成功 - 800 条
+[2026-05-31 21:09:24.492] [INFO] [l1_runner] 开始操作: 拉取行情: market=cn, 800 只股票
+[TEST] test_l2_runner::US(SMCI超微) ▶ END  elapsed=16.7s  status=PASS
 [TEST] test_l2_runner::quality_markers ▶ START
-[2026-05-31 18:20:29.832] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
-[2026-05-31 18:20:36.190] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时14.3s
-[2026-05-31 18:20:36.191] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
-[2026-05-31 18:20:36.192] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
-[2026-05-31 18:20:36.196] [INFO] [l1_runner] 开始L1选股 market=US
-[2026-05-31 18:20:36.288] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=usTSM
-[2026-05-31 18:20:36.289] [INFO] [l1_runner] L1选股完成: 1 只候选股票
-[2026-05-31 18:20:36.289] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
-[2026-05-31 18:20:47.206] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时10.9s
-[2026-05-31 18:20:47.207] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
-[2026-05-31 18:20:50.657] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
-[2026-05-31 18:20:53.841] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
-[2026-05-31 18:20:54.619] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
-[2026-05-31 18:20:54.816] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
-[2026-05-31 18:20:54.943] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
-[TEST] test_l2_runner::quality_markers ▶ END  elapsed=25.4s  status=PASS
+[2026-05-31 21:09:28.250] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:09:32.908] [INFO] [l1_runner] [source=tencent] 获取A股行情成功 - 800 条
+[2026-05-31 21:09:32.910] [INFO] [l1_runner] 开始操作: 策略评分: breakout
+[2026-05-31 21:09:32.914] [INFO] [l1_runner] 完成操作: 策略评分: breakout - 3 条
+[2026-05-31 21:09:32.914] [INFO] [l1_runner] 开始操作: 策略评分: growth_momentum
+[2026-05-31 21:09:32.919] [INFO] [l1_runner] 完成操作: 策略评分: growth_momentum - 3 条
+[2026-05-31 21:09:32.919] [INFO] [l1_runner] 开始操作: 策略评分: garp
+[2026-05-31 21:09:32.922] [INFO] [l1_runner] 完成操作: 策略评分: garp - 3 条
+[2026-05-31 21:09:32.923] [INFO] [l1_runner] 开始操作: 策略评分: pullback
+[2026-05-31 21:09:32.925] [INFO] [l1_runner] 完成操作: 策略评分: pullback - 3 条
+[2026-05-31 21:09:32.925] [INFO] [l1_runner] 开始操作: 策略评分: quality_value
+[2026-05-31 21:09:32.929] [INFO] [l1_runner] 完成操作: 策略评分: quality_value - 3 条
+[2026-05-31 21:09:32.929] [INFO] [l1_runner] 完成操作: 全部策略 - 15 条
+[2026-05-31 21:09:32.930] [INFO] [l1_runner] L1选股完成: 15 只候选股票
+[2026-05-31 21:09:32.930] [INFO] [l2_runner] 开始L2数据充实: 15 只股票
+[2026-05-31 21:09:44.290] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:09:45.333] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:09:46.259] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:09:46.457] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:09:46.543] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::quality_markers ▶ END  elapsed=18.4s  status=PASS
 [TEST] test_l2_runner::missing_fields ▶ START
-[2026-05-31 18:20:56.566] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
-[2026-05-31 18:20:56.945] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时9.7s
-[2026-05-31 18:20:56.945] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
-[2026-05-31 18:20:56.945] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
-[2026-05-31 18:20:56.947] [INFO] [l1_runner] 开始L1选股 market=CN
-[2026-05-31 18:20:57.053] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
-[2026-05-31 18:20:57.193] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sz000858
-[2026-05-31 18:20:57.193] [INFO] [l1_runner] L1选股完成: 2 只候选股票
-[2026-05-31 18:20:57.194] [INFO] [l2_runner] 开始L2数据充实: 2 只股票
-[2026-05-31 18:21:15.204] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
-[2026-05-31 18:21:15.971] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
-[2026-05-31 18:21:16.872] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
-[2026-05-31 18:21:17.087] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
-[2026-05-31 18:21:17.170] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
-[TEST] test_l2_runner::missing_fields ▶ END  elapsed=22.2s  status=PASS
+[2026-05-31 21:09:46.648] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:10:03.278] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:10:03.293] [INFO] [l2_runner] L2数据充实完成: 3 只股票，耗时30.4s
+[2026-05-31 21:10:03.294] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 21:10:06.288] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:10:07.286] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:10:07.527] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:10:07.629] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::missing_fields ▶ END  elapsed=21.1s  status=PASS
 [TEST] test_l2_runner::invalid_market ▶ START
 [TEST] test_l2_runner::invalid_market ▶ END  elapsed=0.0s  status=PASS
 [TEST] test_l2_runner::run_date_field ▶ START
-[2026-05-31 18:21:17.487] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
-[2026-05-31 18:21:28.327] [INFO] [l2_runner] L2数据充实完成: 2 只股票，耗时31.1s
-[2026-05-31 18:21:28.328] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
-[2026-05-31 18:21:32.069] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
-[2026-05-31 18:21:32.651] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
-[2026-05-31 18:21:33.447] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
-[2026-05-31 18:21:33.611] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
-[2026-05-31 18:21:33.672] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
-[TEST] test_l2_runner::run_date_field ▶ END  elapsed=16.5s  status=PASS
+[2026-05-31 21:10:07.736] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:10:10.928] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时7.6s
+[2026-05-31 21:10:10.928] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:10:10.936] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 21:10:10.936] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 21:10:23.977] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:10:24.502] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:10:25.740] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:10:26.031] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:10:26.100] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::run_date_field ▶ END  elapsed=18.5s  status=PASS
 [TEST] test_l2_runner::fund_flow_fallback ▶ START
-[2026-05-31 18:21:33.989] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
-[2026-05-31 18:21:34.989] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时6.7s
-[2026-05-31 18:21:34.989] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
-[2026-05-31 18:21:34.989] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
-[2026-05-31 18:21:34.990] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
-[2026-05-31 18:21:46.305] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时11.3s
-[2026-05-31 18:21:46.306] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
-[2026-05-31 18:21:46.307] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
-[2026-05-31 18:21:49.988] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
-[2026-05-31 18:21:50.983] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
-[2026-05-31 18:21:51.853] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
-[2026-05-31 18:21:52.038] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
-[2026-05-31 18:21:52.124] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
-[TEST] test_l2_runner::fund_flow_fallback ▶ END  elapsed=18.5s  status=PASS
+[2026-05-31 21:10:26.206] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:10:33.140] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时22.2s
+[2026-05-31 21:10:33.140] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:10:33.140] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 21:10:33.141] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 21:10:37.352] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时4.2s
+[2026-05-31 21:10:37.353] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:10:37.353] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
+[2026-05-31 21:10:37.354] [INFO] [l5_runner] 开始L5终审: 1 只BUY决策
+[2026-05-31 21:10:37.372] [WARN] [position_tracker] 获取600938价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.372] [WARN] [position_tracker] 获取603195价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.372] [WARN] [position_tracker] 获取000792价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.373] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.373] [WARN] [position_tracker] 获取300972价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.373] [WARN] [position_tracker] 获取600884价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.373] [WARN] [position_tracker] 获取002738价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.373] [WARN] [position_tracker] 获取688012价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.373] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.374] [WARN] [position_tracker] 获取688017价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.374] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.374] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.374] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.374] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.374] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.374] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.375] [WARN] [position_tracker] 获取601878价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.375] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.375] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.375] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.375] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.375] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.375] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.376] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.376] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.376] [WARN] [position_tracker] 获取601878价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.376] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.376] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.376] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.376] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.377] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.377] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.377] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.377] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.378] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.378] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.378] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.378] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.378] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.378] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.378] [WARN] [position_tracker] 获取002050价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.379] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.379] [WARN] [position_tracker] 获取601878价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.379] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.379] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.379] [WARN] [position_tracker] 获取002050价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.379] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.379] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.380] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.380] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.380] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.380] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.380] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.380] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.380] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.380] [WARN] [position_tracker] 获取600519价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.381] [WARN] [position_tracker] 获取002916价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.381] [WARN] [position_tracker] 获取002916价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 21:10:37.382] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-05-31 21:10:37.420] [INFO] [l5_runner] L5终审完成: 记录1个BUY，复盘0笔，调参建议0条，报告未生成
+[2026-05-31 21:10:44.834] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:10:46.099] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:10:47.121] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:10:47.328] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:10:47.477] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::fund_flow_fallback ▶ END  elapsed=21.4s  status=PASS
 [TEST] test_l2_runner::sector_all_fail ▶ START
-[2026-05-31 18:21:52.793] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
-[2026-05-31 18:22:07.439] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
-[2026-05-31 18:22:10.083] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
-[2026-05-31 18:22:11.126] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
-[2026-05-31 18:22:11.289] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
-[2026-05-31 18:22:11.372] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
-[TEST] test_l2_runner::sector_all_fail ▶ END  elapsed=19.2s  status=PASS
+[2026-05-31 21:10:47.664] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:11:05.777] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:11:09.607] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:11:10.786] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:11:10.948] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:11:11.025] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::sector_all_fail ▶ END  elapsed=23.5s  status=PASS
+[TEST] test_l2_runner ▶ END  passed=9 failed=0 elapsed=144.4s  status=PASS
+[2026-05-31 21:11:46.555] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-05-31 21:11:47.378] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
+[2026-05-31 21:11:47.379] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 21:11:47.379] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 21:12:13.114] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时25.7s
+[2026-05-31 21:12:13.114] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 21:12:16.234] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时3.1s
+[2026-05-31 21:12:16.234] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:12:16.239] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
+[2026-05-31 21:12:16.240] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-05-31 21:12:16.328] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=hk09999
+[2026-05-31 21:12:16.328] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 21:12:16.328] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 21:12:18.656] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时2.3s
+[2026-05-31 21:12:18.657] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 21:12:38.930] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时20.3s
+[2026-05-31 21:12:38.931] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:12:38.932] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 21:12:38.933] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-05-31 21:12:39.150] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=usTSM
+[2026-05-31 21:12:39.150] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 21:12:39.150] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 21:12:59.643] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时20.5s
+[2026-05-31 21:12:59.645] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[TEST] test_l2_runner ▶ START  tests=9
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ START
+[2026-05-31 21:13:07.147] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:13:09.229] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时9.6s
+[2026-05-31 21:13:09.230] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:13:09.231] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 21:13:09.234] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-05-31 21:13:09.329] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
+[2026-05-31 21:13:09.428] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sz000858
+[2026-05-31 21:13:09.429] [INFO] [l1_runner] L1选股完成: 2 只候选股票
+[2026-05-31 21:13:09.429] [INFO] [l2_runner] 开始L2数据充实: 2 只股票
+[2026-05-31 21:13:24.997] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:13:26.267] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:13:27.614] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:13:27.845] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:13:28.328] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ END  elapsed=21.6s  status=PASS
+[TEST] test_l2_runner::HK(00700腾讯) ▶ START
+[TEST] test_l2_runner::HK(00700腾讯) ▶ END  elapsed=3.8s  status=PASS
+[TEST] test_l2_runner::US(SMCI超微) ▶ START
+[2026-05-31 21:13:37.849] [INFO] [l2_runner] L2数据充实完成: 2 只股票，耗时28.4s
+[2026-05-31 21:13:37.850] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 21:13:42.091] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时4.2s
+[2026-05-31 21:13:42.091] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:13:42.092] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 21:13:42.092] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[TEST] test_l2_runner::US(SMCI超微) ▶ END  elapsed=12.0s  status=PASS
+[TEST] test_l2_runner::quality_markers ▶ START
+[2026-05-31 21:13:44.171] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:13:54.594] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时12.5s
+[2026-05-31 21:13:54.594] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:13:54.594] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
+[2026-05-31 21:14:13.345] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:14:14.600] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:14:15.508] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:14:15.779] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:14:15.870] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::quality_markers ▶ END  elapsed=31.8s  status=PASS
+[TEST] test_l2_runner::missing_fields ▶ START
+[2026-05-31 21:14:15.980] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:14:30.729] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:14:31.795] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:14:32.547] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:14:32.695] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:14:32.763] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::missing_fields ▶ END  elapsed=16.9s  status=PASS
+[TEST] test_l2_runner::invalid_market ▶ START
+[TEST] test_l2_runner::invalid_market ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l2_runner::run_date_field ▶ START
+[2026-05-31 21:14:32.866] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:14:48.140] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:14:50.177] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:14:51.188] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:14:51.357] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:14:51.463] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::run_date_field ▶ END  elapsed=18.7s  status=PASS
+[TEST] test_l2_runner::fund_flow_fallback ▶ START
+[2026-05-31 21:14:51.577] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:15:14.773] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:15:18.298] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:15:19.135] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:15:19.344] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:15:19.427] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::fund_flow_fallback ▶ END  elapsed=28.0s  status=PASS
+[TEST] test_l2_runner::sector_all_fail ▶ START
+[2026-05-31 21:15:19.544] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:15:36.265] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:15:36.597] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:15:37.481] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:15:37.631] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:15:37.705] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::sector_all_fail ▶ END  elapsed=18.3s  status=PASS
 [TEST] test_l2_runner ▶ END  passed=9 failed=0 elapsed=151.0s  status=PASS
-[TEST] test_l3_quant_runner ▶ START  tests=11
-[TEST] test_l3_quant_runner::normal_l2 ▶ START
-[TEST] test_l3_quant_runner::normal_l2 ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::failed_dimensions_tracking ▶ START
-[TEST] test_l3_quant_runner::failed_dimensions_tracking ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::score_structure ▶ START
-[TEST] test_l3_quant_runner::score_structure ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::debate_structure ▶ START
-[TEST] test_l3_quant_runner::debate_structure ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::degrade_quality_propagation ▶ START
-[TEST] test_l3_quant_runner::degrade_quality_propagation ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::empty_l2_data ▶ START
-[TEST] test_l3_quant_runner::empty_l2_data ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::missing_fields_detection ▶ START
-[TEST] test_l3_quant_runner::missing_fields_detection ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::partial_dimension_missing ▶ START
-[TEST] test_l3_quant_runner::partial_dimension_missing ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::zero_field_values ▶ START
-[TEST] test_l3_quant_runner::zero_field_values ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::extreme_low_score ▶ START
-[TEST] test_l3_quant_runner::extreme_low_score ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner::field_type_error ▶ START
-[TEST] test_l3_quant_runner::field_type_error ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l3_quant_runner ▶ END  passed=11 failed=0 elapsed=0.0s  status=PASS
-[TEST] test_l4_runner ▶ START  tests=4
-[TEST] test_l4_runner::run_risk_judgment ▶ START
-[TEST] test_l4_runner::run_risk_judgment ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l4_runner::judge_components ▶ START
-[TEST] test_l4_runner::judge_components ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l4_runner::quality_degraded_lowers_score ▶ START
-[TEST] test_l4_runner::quality_degraded_lowers_score ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l4_runner::decision_thresholds ▶ START
-[TEST] test_l4_runner::decision_thresholds ▶ END  elapsed=0.0s  status=PASS
-[TEST] test_l4_runner ▶ END  passed=4 failed=0 elapsed=0.0s  status=PASS
+[TEST] test_l2_runner ▶ START  tests=9
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ START
+[2026-05-31 21:15:45.214] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:16:00.768] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:16:01.431] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:16:02.362] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:16:02.667] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:16:02.816] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ END  elapsed=17.7s  status=PASS
+[TEST] test_l2_runner::HK(00700腾讯) ▶ START
+[TEST] test_l2_runner::HK(00700腾讯) ▶ END  elapsed=2.1s  status=PASS
+[TEST] test_l2_runner::US(SMCI超微) ▶ START
+[TEST] test_l2_runner::US(SMCI超微) ▶ END  elapsed=16.4s  status=PASS
+[TEST] test_l2_runner::quality_markers ▶ START
+[2026-05-31 21:16:21.946] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:16:37.249] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:16:38.491] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:16:39.350] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:16:39.505] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:16:39.617] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::quality_markers ▶ END  elapsed=18.3s  status=PASS
+[TEST] test_l2_runner::missing_fields ▶ START
+[2026-05-31 21:16:39.947] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:16:53.503] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:16:54.029] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:16:54.767] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:16:54.921] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:16:55.053] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::missing_fields ▶ END  elapsed=15.4s  status=FAIL  error=BrokenPipeError: [Errno 32] Broken pipe
+[TEST] test_l2_runner ▶ START  tests=9
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ START
+[2026-05-31 21:17:13.201] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:17:29.144] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:17:29.696] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:17:30.551] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:17:30.701] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:17:30.787] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ END  elapsed=18.0s  status=PASS
+[TEST] test_l2_runner::HK(00700腾讯) ▶ START
+[TEST] test_l2_runner::HK(00700腾讯) ▶ END  elapsed=2.3s  status=PASS
+[TEST] test_l2_runner::US(SMCI超微) ▶ START
+[TEST] test_l2_runner::US(SMCI超微) ▶ END  elapsed=23.3s  status=PASS
+[TEST] test_l2_runner::quality_markers ▶ START
+[2026-05-31 21:17:57.140] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:18:22.721] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:18:24.641] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:18:25.596] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:18:25.779] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:18:25.921] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::quality_markers ▶ END  elapsed=29.5s  status=PASS
+[TEST] test_l2_runner::missing_fields ▶ START
+[2026-05-31 21:18:26.045] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:18:43.556] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:18:43.852] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-05-31 21:18:44.641] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:18:44.761] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
+[2026-05-31 21:18:44.889] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sz000858
+[2026-05-31 21:18:44.889] [INFO] [l1_runner] L1选股完成: 2 只候选股票
+[2026-05-31 21:18:44.889] [INFO] [l2_runner] 开始L2数据充实: 2 只股票
+[2026-05-31 21:18:45.591] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:18:45.783] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:18:45.900] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::missing_fields ▶ END  elapsed=20.0s  status=PASS
+[TEST] test_l2_runner::invalid_market ▶ START
+[TEST] test_l2_runner::invalid_market ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l2_runner::run_date_field ▶ START
+[2026-05-31 21:18:47.473] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:19:09.331] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:19:10.257] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:19:10.991] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:19:11.182] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:19:11.250] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::run_date_field ▶ END  elapsed=25.3s  status=PASS
+[TEST] test_l2_runner::fund_flow_fallback ▶ START
+[2026-05-31 21:19:11.468] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:19:11.472] [INFO] [l2_runner] L2数据充实完成: 2 只股票，耗时26.6s
+[2026-05-31 21:19:11.473] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 21:19:22.017] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时10.5s
+[2026-05-31 21:19:22.017] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:19:22.025] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
+[2026-05-31 21:19:22.025] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 21:19:26.555] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:19:27.840] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:19:28.622] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:19:28.882] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:19:28.971] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::fund_flow_fallback ▶ END  elapsed=17.7s  status=PASS
+[TEST] test_l2_runner::sector_all_fail ▶ START
+[2026-05-31 21:19:29.225] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:19:32.683] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时10.7s
+[2026-05-31 21:19:32.683] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 21:19:32.683] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
+[2026-05-31 21:19:45.503] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:19:46.669] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:19:47.587] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:19:47.757] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:19:47.871] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::sector_all_fail ▶ END  elapsed=18.9s  status=PASS
+[TEST] test_l2_runner ▶ END  passed=9 failed=0 elapsed=155.1s  status=PASS
+[TEST] test_l2_runner ▶ START  tests=9
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ START
+[2026-05-31 21:19:55.015] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 21:20:13.856] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 21:20:14.137] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 21:20:15.121] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 21:20:15.283] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 21:20:15.360] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ END  elapsed=20.7s  status=PASS
+[TEST] test_l2_runner::HK(00700腾讯) ▶ START
+[TEST] test_l2_runner::HK(00700腾讯) ▶ END  elapsed=3.3s  status=PASS
+[TEST] test_l2_runner::US(SMCI超微) ▶ START
+[TEST] test_l2_runner::US(SMCI超微) ▶ END  elapsed=9.8s  status=PASS
+[TEST] test_l2_runner::quality_markers ▶ START
+[2026-05-31 21:20:33.517] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0

@@ -65,6 +65,8 @@ def run_test_file(filepath: str, timeout: int = 300) -> dict:
         # 优先从 TEST suite_end 行解析（格式稳定）
         import re
         result_line = ""
+        passed = 0
+        failed = 0
         for line in output.split("\n"):
             m = re.search(r"\[TEST\]\s+(\S+)\s+▶\s+END\s+passed=(\d+)\s+failed=(\d+)\s+elapsed=([\d.]+)s", line)
             if m:

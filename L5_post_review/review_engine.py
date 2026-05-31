@@ -39,7 +39,6 @@ logger = logging.getLogger("review_engine")
 # ======================== 路径配置 ========================
 
 PROJECT_ROOT = Path(os.path.expanduser("~/.hermes/investment"))
-RECORDS_DIR = PROJECT_ROOT / "main" / "records"
 CONFIG_DIR = PROJECT_ROOT / "main" / "config"
 REVIEW_OUTPUT_DIR = CONFIG_DIR / "review_pending"
 FREEZE_TABLE_PATH = PROJECT_ROOT / "main" / "freeze_table.json"
@@ -140,13 +139,10 @@ class ReviewEngine:
         3. 任意时刻 → get_effectiveness_report() / run_review()
     """
 
-    TRACKER_FILE = RECORDS_DIR / "strategy_tracker.json"
-
     def __init__(self, market: str = "CN"):
         self.market = market.upper()
         self.decisions: List[DecisionRecord] = []
         self.outcomes: Dict[str, List[OutcomeRecord]] = {}
-        self._load()
 
     # ── 决策记录 ───────────────────────────────────────────────
 
@@ -402,18 +398,6 @@ class ReviewEngine:
                 pass
 
             decision_at_entry = "BUY"
-            try:
-                records_index = RECORDS_DIR / "index.json"
-                if records_index.exists():
-                    with open(records_index, "r", encoding="utf-8") as f:
-                        index_data = json.load(f)
-                    code_key = code.replace(".", "_")
-                    if code_key in index_data:
-                        dates = index_data[code_key].get("dates", [])
-                        if dates:
-                            decision_at_entry = dates[0].get("decision", "BUY")
-            except Exception:
-                pass
 
             return_pct = (exit_price - entry_price) / entry_price if entry_price > 0 else 0.0
 
@@ -648,33 +632,12 @@ class ReviewEngine:
     # ── 持久化 ─────────────────────────────────────────────────
 
     def _load(self) -> None:
-        """从磁盘加载追踪数据"""
-        if not self.TRACKER_FILE.exists():
-            return
-        try:
-            with open(self.TRACKER_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            self.decisions = [DecisionRecord(**r) for r in data.get("decisions", [])]
-            self.outcomes = {
-                did: [OutcomeRecord(**o) for o in outs]
-                for did, outs in data.get("outcomes", {}).items()
-            }
-            logger.info(f"[ReviewEngine] Loaded {len(self.decisions)} decisions")
-        except Exception as e:
-            logger.warning(f"ReviewEngine load failed: {e}")
+        """从磁盘加载追踪数据（已迁移到DB，此处为空）"""
+        pass
 
     def _save(self) -> None:
-        """持久化追踪数据"""
-        self.TRACKER_FILE.parent.mkdir(parents=True, exist_ok=True)
-        data = {
-            "decisions": [asdict(d) for d in self.decisions],
-            "outcomes": {
-                did: [asdict(o) for o in outs]
-                for did, outs in self.outcomes.items()
-            },
-        }
-        with open(self.TRACKER_FILE, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
+        """持久化追踪数据（已迁移到DB，此处为空）"""
+        pass
 
 
 # ─── CLI 自检 ─────────────────────────────────────────────────
