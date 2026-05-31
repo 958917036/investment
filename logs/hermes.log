@@ -295,3 +295,411 @@
 [2026-05-31 22:58:05.666] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
 [2026-05-31 22:58:05.667] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
 [2026-05-31 22:58:05.667] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 22:58:19.608] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时13.9s
+[2026-05-31 22:58:19.608] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 22:58:19.609] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 22:58:19.610] [INFO] [l5_runner] 开始L5终审: 1 只BUY决策
+[2026-05-31 22:58:19.622] [WARN] [position_tracker] 获取600938价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.623] [WARN] [position_tracker] 获取603195价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.623] [WARN] [position_tracker] 获取000792价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.623] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.623] [WARN] [position_tracker] 获取300972价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.623] [WARN] [position_tracker] 获取600884价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.624] [WARN] [position_tracker] 获取002738价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.624] [WARN] [position_tracker] 获取688012价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.624] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.624] [WARN] [position_tracker] 获取688017价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.624] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.625] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.625] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.625] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.625] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.625] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.626] [WARN] [position_tracker] 获取601878价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.626] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.626] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.626] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.626] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.627] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.627] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.627] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.627] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.627] [WARN] [position_tracker] 获取601878价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.627] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.628] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.628] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.628] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.628] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.628] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.629] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.629] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.629] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.629] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.629] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.630] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.630] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.630] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.630] [WARN] [position_tracker] 获取002050价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.630] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.630] [WARN] [position_tracker] 获取601878价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.631] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.631] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.631] [WARN] [position_tracker] 获取002050价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.631] [WARN] [position_tracker] 获取002266价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.631] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.631] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.632] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.632] [WARN] [position_tracker] 获取600160价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.632] [WARN] [position_tracker] 获取001286价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.632] [WARN] [position_tracker] 获取002202价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.633] [WARN] [position_tracker] 获取002354价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.633] [WARN] [position_tracker] 获取002414价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.633] [WARN] [position_tracker] 获取600519价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.633] [WARN] [position_tracker] 获取002916价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.633] [WARN] [position_tracker] 获取002916价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.634] [WARN] [position_tracker] 获取300394价格失败: cannot import name 'fetch_qq_realtime' from 'L2_data_enrich.data_fetcher' (/Users/guchuang/.hermes/investment/L2_data_enrich/data_fetcher.py)
+[2026-05-31 22:58:19.635] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-05-31 22:58:19.656] [INFO] [l5_runner] L5终审完成: 记录1个BUY，复盘0笔，调参建议0条，报告未生成
+[2026-05-31 22:59:04.342] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-05-31 22:59:05.106] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
+[2026-05-31 22:59:05.106] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 22:59:05.106] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 22:59:36.467] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时31.4s
+[2026-05-31 22:59:36.468] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 22:59:46.760] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时10.3s
+[2026-05-31 22:59:46.760] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 22:59:46.769] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 22:59:50.762] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-05-31 22:59:51.756] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=hk09999
+[2026-05-31 22:59:51.757] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 22:59:51.757] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 22:59:55.259] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时3.5s
+[2026-05-31 22:59:55.260] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 22:59:58.406] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时3.1s
+[2026-05-31 22:59:58.407] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 22:59:58.428] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 23:00:03.329] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-05-31 23:00:03.871] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=usTSM
+[2026-05-31 23:00:03.871] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 23:00:03.872] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 23:00:18.845] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时15.0s
+[2026-05-31 23:00:18.846] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 23:00:38.308] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时19.5s
+[2026-05-31 23:00:38.309] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 23:00:38.331] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 23:01:39.656] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-05-31 23:01:40.367] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
+[2026-05-31 23:01:40.367] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 23:01:40.367] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 23:02:07.173] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时26.8s
+[2026-05-31 23:02:07.174] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 23:02:11.280] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时4.1s
+[2026-05-31 23:02:11.280] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 23:02:11.287] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
+[2026-06-01 05:01:36.006] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-06-01 05:01:47.842] [INFO] [l1_runner] L1选股完成: 3 只候选股票
+[2026-06-01 05:04:03.296] [source=tencent] fetch_qq_realtime ✅ - code=sh600519, price=1326.0
+[2026-06-01 05:04:24.556] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-06-01 05:04:25.594] [INFO] [l1_runner] 开始操作: 获取股票列表: market=cn, pool=index800
+[2026-06-01 05:04:26.562] [INFO] [l1_runner] [source=akshare] 获取A股指数成分股(沪深300+中证500)成功 - 800 条
+[2026-06-01 05:04:26.563] [INFO] [l1_runner] 开始操作: 拉取行情: market=cn, 800 只股票
+[2026-06-01 05:04:36.043] [INFO] [l1_runner] [source=tencent] 获取A股行情成功 - 800 条
+[2026-06-01 05:04:36.044] [INFO] [l1_runner] 开始操作: 策略评分: breakout
+[2026-06-01 05:04:36.046] [INFO] [l1_runner] 完成操作: 策略评分: breakout - 3 条
+[2026-06-01 05:04:36.046] [INFO] [l1_runner] 开始操作: 策略评分: growth_momentum
+[2026-06-01 05:04:36.050] [INFO] [l1_runner] 完成操作: 策略评分: growth_momentum - 3 条
+[2026-06-01 05:04:36.050] [INFO] [l1_runner] 开始操作: 策略评分: garp
+[2026-06-01 05:04:36.053] [INFO] [l1_runner] 完成操作: 策略评分: garp - 3 条
+[2026-06-01 05:04:36.053] [INFO] [l1_runner] 开始操作: 策略评分: pullback
+[2026-06-01 05:04:36.056] [INFO] [l1_runner] 完成操作: 策略评分: pullback - 3 条
+[2026-06-01 05:04:36.056] [INFO] [l1_runner] 开始操作: 策略评分: quality_value
+[2026-06-01 05:04:36.059] [INFO] [l1_runner] 完成操作: 策略评分: quality_value - 3 条
+[2026-06-01 05:04:36.059] [INFO] [l1_runner] 完成操作: 全部策略 - 15 条
+[2026-06-01 05:04:36.060] [INFO] [l1_runner] L1选股完成: 15 只候选股票
+[2026-06-01 05:04:36.060] [INFO] [l2_runner] 开始L2数据充实: 15 只股票
+[2026-06-01 05:04:57.743] [INFO] [l2_runner] L2数据充实完成: 3 只股票，耗时21.7s
+[2026-06-01 05:04:57.744] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-06-01 05:05:15.998] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时18.3s
+[2026-06-01 05:05:15.998] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-06-01 05:05:16.005] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-06-01 05:05:16.005] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-06-01 05:05:26.950] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时10.9s
+[2026-06-01 05:05:26.950] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-06-01 05:05:26.950] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-06-01 05:05:26.951] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-06-01 05:05:38.218] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时11.3s
+[2026-06-01 05:05:38.219] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-06-01 05:05:38.219] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
+[2026-06-01 05:05:38.220] [INFO] [l5_runner] 开始L5终审: 1 只BUY决策
+[2026-06-01 05:05:38.339] [source=tencent] fetch_qq_realtime ✅ - code=600938, price=34.4
+[2026-06-01 05:05:38.457] [source=tencent] fetch_qq_realtime ✅ - code=603195, price=41.58
+[2026-06-01 05:05:38.588] [source=tencent] fetch_qq_realtime ✅ - code=000792, price=30.77
+[2026-06-01 05:05:38.688] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:38.788] [source=tencent] fetch_qq_realtime ✅ - code=300972, price=181.69
+[2026-06-01 05:05:38.888] [source=tencent] fetch_qq_realtime ✅ - code=600884, price=14.65
+[2026-06-01 05:05:38.989] [source=tencent] fetch_qq_realtime ✅ - code=002738, price=61.89
+[2026-06-01 05:05:39.088] [source=tencent] fetch_qq_realtime ✅ - code=688012, price=297.68
+[2026-06-01 05:05:39.188] [source=tencent] fetch_qq_realtime ✅ - code=002414, price=12.87
+[2026-06-01 05:05:39.288] [source=tencent] fetch_qq_realtime ✅ - code=688017, price=306.0
+[2026-06-01 05:05:39.391] [source=tencent] fetch_qq_realtime ✅ - code=002266, price=5.15
+[2026-06-01 05:05:39.489] [source=tencent] fetch_qq_realtime ✅ - code=002266, price=5.15
+[2026-06-01 05:05:39.596] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:39.698] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:39.795] [source=tencent] fetch_qq_realtime ✅ - code=001286, price=12.82
+[2026-06-01 05:05:39.892] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:39.989] [source=tencent] fetch_qq_realtime ✅ - code=601878, price=9.44
+[2026-06-01 05:05:40.088] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:40.188] [source=tencent] fetch_qq_realtime ✅ - code=001286, price=12.82
+[2026-06-01 05:05:40.311] [source=tencent] fetch_qq_realtime ✅ - code=002266, price=5.15
+[2026-06-01 05:05:40.453] [source=tencent] fetch_qq_realtime ✅ - code=002266, price=5.15
+[2026-06-01 05:05:40.588] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:40.693] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:40.789] [source=tencent] fetch_qq_realtime ✅ - code=002266, price=5.15
+[2026-06-01 05:05:40.888] [source=tencent] fetch_qq_realtime ✅ - code=001286, price=12.82
+[2026-06-01 05:05:41.000] [source=tencent] fetch_qq_realtime ✅ - code=601878, price=9.44
+[2026-06-01 05:05:41.099] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:41.206] [source=tencent] fetch_qq_realtime ✅ - code=001286, price=12.82
+[2026-06-01 05:05:41.339] [source=tencent] fetch_qq_realtime ✅ - code=002202, price=23.42
+[2026-06-01 05:05:41.439] [source=tencent] fetch_qq_realtime ✅ - code=002354, price=7.15
+[2026-06-01 05:05:41.589] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:41.698] [source=tencent] fetch_qq_realtime ✅ - code=001286, price=12.82
+[2026-06-01 05:05:41.839] [source=tencent] fetch_qq_realtime ✅ - code=002202, price=23.42
+[2026-06-01 05:05:41.946] [source=tencent] fetch_qq_realtime ✅ - code=002354, price=7.15
+[2026-06-01 05:05:42.098] [source=tencent] fetch_qq_realtime ✅ - code=002414, price=12.87
+[2026-06-01 05:05:42.238] [source=tencent] fetch_qq_realtime ✅ - code=002266, price=5.15
+[2026-06-01 05:05:42.339] [source=tencent] fetch_qq_realtime ✅ - code=001286, price=12.82
+[2026-06-01 05:05:42.454] [source=tencent] fetch_qq_realtime ✅ - code=002202, price=23.42
+[2026-06-01 05:05:42.589] [source=tencent] fetch_qq_realtime ✅ - code=002354, price=7.15
+[2026-06-01 05:05:42.710] [source=tencent] fetch_qq_realtime ✅ - code=002414, price=12.87
+[2026-06-01 05:05:42.841] [source=tencent] fetch_qq_realtime ✅ - code=002050, price=46.34
+[2026-06-01 05:05:42.951] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:43.089] [source=tencent] fetch_qq_realtime ✅ - code=601878, price=9.44
+[2026-06-01 05:05:43.220] [source=tencent] fetch_qq_realtime ✅ - code=002354, price=7.15
+[2026-06-01 05:05:43.348] [source=tencent] fetch_qq_realtime ✅ - code=002414, price=12.87
+[2026-06-01 05:05:43.489] [source=tencent] fetch_qq_realtime ✅ - code=002050, price=46.34
+[2026-06-01 05:05:43.598] [source=tencent] fetch_qq_realtime ✅ - code=002266, price=5.15
+[2026-06-01 05:05:43.739] [source=tencent] fetch_qq_realtime ✅ - code=002202, price=23.42
+[2026-06-01 05:05:43.851] [source=tencent] fetch_qq_realtime ✅ - code=002354, price=7.15
+[2026-06-01 05:05:43.989] [source=tencent] fetch_qq_realtime ✅ - code=002414, price=12.87
+[2026-06-01 05:05:44.096] [source=tencent] fetch_qq_realtime ✅ - code=600160, price=33.02
+[2026-06-01 05:05:44.242] [source=tencent] fetch_qq_realtime ✅ - code=001286, price=12.82
+[2026-06-01 05:05:44.345] [source=tencent] fetch_qq_realtime ✅ - code=002202, price=23.42
+[2026-06-01 05:05:44.461] [source=tencent] fetch_qq_realtime ✅ - code=002354, price=7.15
+[2026-06-01 05:05:44.589] [source=tencent] fetch_qq_realtime ✅ - code=002414, price=12.87
+[2026-06-01 05:05:44.702] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-06-01 05:05:44.838] [source=tencent] fetch_qq_realtime ✅ - code=002916, price=411.41
+[2026-06-01 05:05:44.989] [source=tencent] fetch_qq_realtime ✅ - code=002916, price=411.41
+[2026-06-01 05:05:45.139] [source=tencent] fetch_qq_realtime ✅ - code=300394, price=455.2
+[2026-06-01 05:05:45.251] [source=tencent] fetch_qq_realtime ✅ - code=002916, price=411.41
+[2026-06-01 05:05:45.254] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.258] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.258] [INFO] [position_tracker] 更新持仓状态: 600938 → stopped
+[2026-06-01 05:05:45.262] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.262] [INFO] [position_tracker] 更新持仓状态: 603195 → stopped
+[2026-06-01 05:05:45.266] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.266] [INFO] [position_tracker] 更新持仓状态: 000792 → stopped
+[2026-06-01 05:05:45.270] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.270] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.274] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.287] [INFO] [position_tracker] 更新持仓状态: 300972 → stopped
+[2026-06-01 05:05:45.291] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.291] [INFO] [position_tracker] 更新持仓状态: 600884 → stopped
+[2026-06-01 05:05:45.294] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.295] [INFO] [position_tracker] 更新持仓状态: 002738 → stopped
+[2026-06-01 05:05:45.298] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.298] [INFO] [position_tracker] 更新持仓状态: 688012 → stopped
+[2026-06-01 05:05:45.301] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.302] [INFO] [position_tracker] 更新持仓状态: 002414 → stopped
+[2026-06-01 05:05:45.305] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.305] [INFO] [position_tracker] 更新持仓状态: 002266 → stopped
+[2026-06-01 05:05:45.308] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.309] [INFO] [position_tracker] 更新持仓状态: 002266 → stopped
+[2026-06-01 05:05:45.312] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.312] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.315] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.316] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.319] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.319] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.322] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.323] [INFO] [position_tracker] 更新持仓状态: 601878 → stopped
+[2026-06-01 05:05:45.340] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.341] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.344] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.344] [INFO] [position_tracker] 更新持仓状态: 002266 → stopped
+[2026-06-01 05:05:45.347] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.348] [INFO] [position_tracker] 更新持仓状态: 002266 → stopped
+[2026-06-01 05:05:45.351] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.352] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.355] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.355] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.359] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.359] [INFO] [position_tracker] 更新持仓状态: 002266 → stopped
+[2026-06-01 05:05:45.363] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.363] [INFO] [position_tracker] 更新持仓状态: 601878 → stopped
+[2026-06-01 05:05:45.366] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.367] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.370] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.371] [INFO] [position_tracker] 更新持仓状态: 002202 → stopped
+[2026-06-01 05:05:45.388] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.388] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.392] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.392] [INFO] [position_tracker] 更新持仓状态: 002202 → stopped
+[2026-06-01 05:05:45.396] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.396] [INFO] [position_tracker] 更新持仓状态: 002414 → stopped
+[2026-06-01 05:05:45.399] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.399] [INFO] [position_tracker] 更新持仓状态: 002266 → stopped
+[2026-06-01 05:05:45.402] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.402] [INFO] [position_tracker] 更新持仓状态: 002202 → stopped
+[2026-06-01 05:05:45.405] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.405] [INFO] [position_tracker] 更新持仓状态: 002414 → stopped
+[2026-06-01 05:05:45.409] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.409] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.412] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.412] [INFO] [position_tracker] 更新持仓状态: 601878 → stopped
+[2026-06-01 05:05:45.415] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.415] [INFO] [position_tracker] 更新持仓状态: 002414 → stopped
+[2026-06-01 05:05:45.418] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.418] [INFO] [position_tracker] 更新持仓状态: 002266 → stopped
+[2026-06-01 05:05:45.421] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.421] [INFO] [position_tracker] 更新持仓状态: 002202 → stopped
+[2026-06-01 05:05:45.438] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.438] [INFO] [position_tracker] 更新持仓状态: 002414 → stopped
+[2026-06-01 05:05:45.442] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.442] [INFO] [position_tracker] 更新持仓状态: 600160 → stopped
+[2026-06-01 05:05:45.445] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.445] [INFO] [position_tracker] 更新持仓状态: 002202 → stopped
+[2026-06-01 05:05:45.449] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.449] [INFO] [position_tracker] 更新持仓状态: 002414 → stopped
+[2026-06-01 05:05:45.452] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.453] [INFO] [position_tracker] 更新持仓状态: 600519 → stopped
+[2026-06-01 05:05:45.456] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.456] [INFO] [position_tracker] 更新持仓状态: 688017 → take_profit
+[2026-06-01 05:05:45.460] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.460] [INFO] [position_tracker] 更新持仓状态: 002916 → take_profit
+[2026-06-01 05:05:45.464] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.464] [INFO] [position_tracker] 更新持仓状态: 002916 → take_profit
+[2026-06-01 05:05:45.468] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.468] [INFO] [position_tracker] 更新持仓状态: 300394 → take_profit
+[2026-06-01 05:05:45.471] [INFO] [position_tracker] 冷冻表已保存: /Users/guchuang/.hermes/investment/main/freeze_table.json
+[2026-06-01 05:05:45.472] [INFO] [position_tracker] 更新持仓状态: 002916 → take_profit
+[2026-06-01 05:05:45.539] [INFO] [l5_runner] L5终审完成: 记录1个BUY，复盘0笔，调参建议0条，报告未生成
+[2026-06-01 05:20:24.487] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 05:20:24.487] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 05:20:25.352] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 05:20:25.352] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 05:20:32.545] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 05:20:32.546] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 05:20:32.546] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 05:20:32.546] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 05:20:32.712] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 05:20:32.715] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 05:20:32.716] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 05:20:32.716] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 05:30:44.695] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 05:30:44.713] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 05:30:45.230] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 05:30:45.230] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 05:30:50.957] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 05:30:50.958] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 05:30:50.958] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 05:30:50.958] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 05:30:52.018] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 05:30:52.018] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 05:30:52.018] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 05:30:52.019] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 05:40:58.312] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 05:40:58.344] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 05:41:00.011] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 05:41:00.011] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 05:41:06.179] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 05:41:06.180] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 05:41:06.180] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 05:41:06.180] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 05:41:06.619] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 05:41:06.619] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 05:41:06.619] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 05:41:06.619] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 05:50:08.812] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 05:50:08.812] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 05:50:09.654] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 05:50:09.655] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 05:50:15.734] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 05:50:15.734] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 05:50:15.736] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 05:50:15.736] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 05:50:15.937] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 05:50:15.938] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 05:50:15.938] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 05:50:15.938] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:00:26.207] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 06:00:26.207] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 06:00:27.115] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 06:00:27.115] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 06:00:32.541] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:00:32.541] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:00:32.541] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:00:32.542] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:00:33.036] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:00:33.036] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:00:33.037] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:00:33.037] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:10:54.028] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 06:10:54.028] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 06:10:55.174] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 06:10:55.175] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 06:11:01.087] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:11:01.114] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:11:01.123] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:11:01.123] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:11:01.290] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:11:01.291] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:11:01.291] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:11:01.291] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:20:17.999] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 06:20:17.999] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 06:20:19.099] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 06:20:19.099] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 06:20:25.805] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:20:25.805] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:20:25.805] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:20:25.805] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:20:25.822] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:20:25.822] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:20:25.822] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:20:25.822] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:30:55.025] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 06:30:55.025] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 06:30:56.812] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 06:30:56.812] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 06:31:02.809] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:31:02.809] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:31:02.809] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:31:02.809] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:31:03.629] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:31:03.629] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:31:03.630] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:31:03.630] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:40:40.903] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 06:40:40.903] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 06:40:42.070] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 06:40:42.070] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 06:40:47.735] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:40:47.736] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:40:47.737] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:40:47.737] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:40:47.774] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:40:47.775] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:40:47.775] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:40:47.775] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:50:00.783] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-06-01 06:50:00.783] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-06-01 06:50:01.699] [INFO] [l1_runner] 开始操作: 获取股票列表: market=us, pool=index800
+[2026-06-01 06:50:01.699] [INFO] [l1_runner] 开始操作: 获取股票列表: market=hk, pool=index800
+[2026-06-01 06:50:07.729] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:50:07.729] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:50:07.729] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:50:07.729] [INFO] [l2_runner] L1无候选股票，跳过L2
+[2026-06-01 06:50:07.842] [ERROR] [l1_runner] [source=akshare] 获取股票列表失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-06-01 06:50:07.843] [INFO] [l1_runner] L1选股完成: 0 只候选股票
+[2026-06-01 06:50:07.843] [INFO] [l2_runner] 开始L2数据充实: 0 只股票
+[2026-06-01 06:50:07.843] [INFO] [l2_runner] L1无候选股票，跳过L2

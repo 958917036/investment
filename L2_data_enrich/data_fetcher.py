@@ -8,6 +8,18 @@ shennong.py 等外部调用方使用:
 
 实际实现在 core/data_fetcher.py。
 """
-from L2_data_enrich.core.data_fetcher import fetch_batch, fetch_all, fetch_one_stock
+from L2_data_enrich.core.data_fetcher import (
+    fetch_batch,
+    fetch_all,
+    fetch_one_stock,
+    fetch_qq_realtime,
+    fetch_fund_flow,
+)
 
-__all__ = ["fetch_batch", "fetch_all", "fetch_one_stock"]
+__all__ = [
+    "fetch_batch",
+    "fetch_all",
+    "fetch_one_stock",
+    "fetch_qq_realtime",
+    "fetch_fund_flow",
+]
