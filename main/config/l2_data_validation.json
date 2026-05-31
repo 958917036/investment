@@ -1,0 +1,46 @@
+{
+  "_comment": "L2数据完整性校验配置 v1（2026-05-04）",
+  "_description": "L2数据层数据完整性校验规则",
+  "critical_fields": {
+    "moneyflow_data": {
+      "required": true,
+      "critical_keys": ["main_net_flow_5d"],
+      "min_valid_ratio": 0.5
+    }
+  },
+  "dimension_requirements": {
+    "moneyflow": {
+      "min_fields": 3,
+      "required_fields": ["main_net_flow_5d", "outer_inner_ratio"]
+    },
+    "technical": {
+      "min_fields": 5,
+      "required_fields": ["ma_status", "macd_status", "rsi"]
+    },
+    "fundamental": {
+      "min_fields": 4,
+      "required_fields": ["pe", "pb", "roe"]
+    },
+    "sector": {
+      "min_fields": 2,
+      "required_fields": ["sector_rank", "sector_strength"]
+    },
+    "event": {
+      "min_fields": 1,
+      "required_fields": ["event_count"]
+    }
+  },
+  "quality_thresholds": {
+    "min_sector_rank": 0,
+    "max_sector_rank": 100,
+    "min_rsi": 0,
+    "max_rsi": 100,
+    "min_outer_inner_ratio": 0,
+    "max_outer_inner_ratio": 2.0
+  },
+  "data_quality_levels": {
+    "ok": "所有关键维度数据完整",
+    "degraded": "部分维度数据缺失",
+    "fail": "关键维度数据缺失"
+  }
+}

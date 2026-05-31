@@ -1,0 +1,8 @@
+{
+  "min_market_cap": 5000000000,
+  "max_pe": 50,
+  "max_pb": 10,
+  "min_roe": 8,
+  "min_volume": 10000000,
+  "candidate_pool_size": 30
+}

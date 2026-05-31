@@ -1,0 +1,819 @@
+{
+  "_comment": "冷冻表 - L5复盘层唯一写入，执行层只读",
+  "_schema_version": "1.0",
+  "freeze_records": [
+    {
+      "stock_code": "601825",
+      "stock_name": "沪农商行",
+      "freeze_level": "3months",
+      "frozen_until": "2026-07-23",
+      "fail_reasons": [
+        "均线空头排列",
+        "外内盘比<0.8",
+        "主力净流出"
+      ],
+      "last_checked": "2026-04-23",
+      "check_count": 1,
+      "priority": 0,
+      "status": "frozen",
+      "from_10day": false,
+      "notes": "均线空头排列+资金净流出+净利增速0%，3条件同时触发"
+    },
+    {
+      "stock_code": "600741",
+      "stock_name": "华域汽车",
+      "freeze_level": "10days",
+      "frozen_until": "2026-06-03",
+      "fail_reasons": [
+        "均线混乱",
+        "外内盘比<0.8",
+        "20日区间位置>80%"
+      ],
+      "last_checked": "2026-05-24",
+      "check_count": 4,
+      "priority": 0,
+      "status": "frozen",
+      "from_10day": false,
+      "notes": "均线MA5<MA10+外内盘比0.712+位置98% | 10天冻结到期重跑(2026-05-04): 均线空头排列确认,外内盘比改善至0.841,升级至2026-05-14"
+    },
+    {
+      "stock_code": "600519",
+      "stock_name": "贵州茅台",
+      "freeze_level": "10days",
+      "frozen_until": "2026-06-10",
+      "fail_reasons": [
+        "PE过高"
+      ],
+      "last_checked": "2026-05-31",
+      "check_count": 0,
+      "status": "unfrozen",
+      "unfrozen_date": "2026-05-31"
+    },
+    {
+      "stock_code": "000333",
+      "stock_name": "美的集团",
+      "freeze_level": "10days",
+      "frozen_until": "2026-06-10",
+      "fail_reasons": [
+        "PE过高"
+      ],
+      "last_checked": "2026-05-31",
+      "check_count": 0,
+      "status": "frozen"
+    }
+  ],
+  "observing_list": [
+    {
+      "stock_code": "600919",
+      "stock_name": "江苏银行",
+      "priority": 0.6,
+      "enter_date": "2026-04-23",
+      "enter_reason": "低估值+ROE优秀，但位置偏高",
+      "watch_conditions": [
+        "20日区间位置<70%",
+        "外内盘比>0.9",
+        "主力连续3日净流入"
+      ],
+      "last_checked": "2026-05-04",
+      "check_count": 2
+    },
+    {
+      "stock_code": "601838",
+      "stock_name": "成都银行",
+      "priority": 0.5,
+      "enter_date": "2026-04-23",
+      "enter_reason": "资金面略好+区域逻辑，但位置偏高",
+      "watch_conditions": [
+        "20日区间位置<70%",
+        "外内盘比>0.9",
+        "主力连续3日净流入"
+      ],
+      "last_checked": "2026-05-04",
+      "check_count": 2
+    },
+    {
+      "stock_code": "600926",
+      "stock_name": "杭州银行",
+      "priority": 0.7,
+      "enter_date": "2026-04-23",
+      "enter_reason": "三只银行中最优：外内盘比1.201+近5日净流入+0.72亿",
+      "watch_conditions": [
+        "20日区间位置<70%",
+        "RSI<70",
+        "主力重新净流入"
+      ],
+      "last_checked": "2026-05-04",
+      "check_count": 2
+    }
+  ],
+  "buy_signals": [
+    {
+      "stock_code": "600938",
+      "stock_name": "中国海油",
+      "judge_score": 0.61,
+      "price": 39.99,
+      "stop_loss": 38.58,
+      "take_profit": 47.99,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "603195",
+      "stock_name": "公牛集团",
+      "judge_score": 0.603,
+      "price": 44.85,
+      "stop_loss": 43.83,
+      "take_profit": 53.82,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "000792",
+      "stock_name": "盐湖股份",
+      "judge_score": 0.698,
+      "price": 39.29,
+      "stop_loss": 36.74,
+      "take_profit": 47.15,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.699,
+      "price": 36.63,
+      "stop_loss": 34.64,
+      "take_profit": 43.96,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "300972",
+      "stock_name": "万辰集团",
+      "judge_score": 0.613,
+      "price": 226.81,
+      "stop_loss": 210.12,
+      "take_profit": 272.17,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600884",
+      "stock_name": "杉杉股份",
+      "judge_score": 0.604,
+      "price": 16.65,
+      "stop_loss": 15.35,
+      "take_profit": 19.98,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002738",
+      "stock_name": "中矿资源",
+      "judge_score": 0.602,
+      "price": 93.66,
+      "stop_loss": 87.39,
+      "take_profit": 112.39,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "688012",
+      "stock_name": "中微公司",
+      "judge_score": 0.69,
+      "price": 383.3,
+      "stop_loss": 357.34,
+      "take_profit": 459.96,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002414",
+      "stock_name": "高德红外",
+      "judge_score": 0.618,
+      "price": 15.15,
+      "stop_loss": 14.33,
+      "take_profit": 18.18,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "688017",
+      "stock_name": "绿的谐波",
+      "judge_score": 0.693,
+      "price": 226.81,
+      "stop_loss": 211.3,
+      "take_profit": 272.17,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-06",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002266",
+      "stock_name": "浙富控股",
+      "judge_score": 0.599,
+      "price": 5.51,
+      "stop_loss": 5.23,
+      "take_profit": 6.61,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002266",
+      "stock_name": "浙富控股",
+      "judge_score": 0.599,
+      "price": 5.51,
+      "stop_loss": 5.23,
+      "take_profit": 6.61,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.605,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.605,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "001286",
+      "stock_name": "陕西能源",
+      "judge_score": 0.598,
+      "price": 11.91,
+      "stop_loss": 11.38,
+      "take_profit": 14.29,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.605,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "601878",
+      "stock_name": "浙商证券",
+      "judge_score": 0.6,
+      "price": 9.88,
+      "stop_loss": 9.65,
+      "take_profit": 11.86,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.605,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "001286",
+      "stock_name": "陕西能源",
+      "judge_score": 0.598,
+      "price": 11.91,
+      "stop_loss": 11.38,
+      "take_profit": 14.29,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002266",
+      "stock_name": "浙富控股",
+      "judge_score": 0.599,
+      "price": 5.51,
+      "stop_loss": 5.23,
+      "take_profit": 6.61,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002266",
+      "stock_name": "浙富控股",
+      "judge_score": 0.599,
+      "price": 5.51,
+      "stop_loss": 5.23,
+      "take_profit": 6.61,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.605,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.688,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002266",
+      "stock_name": "浙富控股",
+      "judge_score": 0.599,
+      "price": 5.51,
+      "stop_loss": 5.23,
+      "take_profit": 6.61,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "001286",
+      "stock_name": "陕西能源",
+      "judge_score": 0.598,
+      "price": 11.91,
+      "stop_loss": 11.38,
+      "take_profit": 14.29,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "601878",
+      "stock_name": "浙商证券",
+      "judge_score": 0.6,
+      "price": 9.88,
+      "stop_loss": 9.65,
+      "take_profit": 11.86,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.605,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "001286",
+      "stock_name": "陕西能源",
+      "judge_score": 0.598,
+      "price": 11.91,
+      "stop_loss": 11.38,
+      "take_profit": 14.29,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002202",
+      "stock_name": "金风科技",
+      "judge_score": 0.6,
+      "price": 27.94,
+      "stop_loss": 26.26,
+      "take_profit": 33.53,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002354",
+      "stock_name": "天娱数科",
+      "judge_score": 0.552,
+      "price": 6.37,
+      "stop_loss": 6.06,
+      "take_profit": 7.64,
+      "kelly_fraction": 0.25,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.605,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "001286",
+      "stock_name": "陕西能源",
+      "judge_score": 0.598,
+      "price": 11.91,
+      "stop_loss": 11.38,
+      "take_profit": 14.29,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002202",
+      "stock_name": "金风科技",
+      "judge_score": 0.6,
+      "price": 27.94,
+      "stop_loss": 26.26,
+      "take_profit": 33.53,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002354",
+      "stock_name": "天娱数科",
+      "judge_score": 0.636,
+      "price": 6.37,
+      "stop_loss": 6.06,
+      "take_profit": 7.64,
+      "kelly_fraction": 0.25,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002414",
+      "stock_name": "高德红外",
+      "judge_score": 0.616,
+      "price": 15.15,
+      "stop_loss": 14.33,
+      "take_profit": 18.18,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002266",
+      "stock_name": "浙富控股",
+      "judge_score": 0.599,
+      "price": 5.51,
+      "stop_loss": 5.23,
+      "take_profit": 6.61,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "001286",
+      "stock_name": "陕西能源",
+      "judge_score": 0.598,
+      "price": 11.91,
+      "stop_loss": 11.38,
+      "take_profit": 14.29,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002202",
+      "stock_name": "金风科技",
+      "judge_score": 0.6,
+      "price": 27.94,
+      "stop_loss": 26.26,
+      "take_profit": 33.53,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002354",
+      "stock_name": "天娱数科",
+      "judge_score": 0.552,
+      "price": 6.37,
+      "stop_loss": 6.06,
+      "take_profit": 7.64,
+      "kelly_fraction": 0.25,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002414",
+      "stock_name": "高德红外",
+      "judge_score": 0.616,
+      "price": 15.15,
+      "stop_loss": 14.33,
+      "take_profit": 18.18,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002050",
+      "stock_name": "三花智控",
+      "judge_score": 0.605,
+      "price": 48.16,
+      "stop_loss": 45.9,
+      "take_profit": 57.79,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.605,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "601878",
+      "stock_name": "浙商证券",
+      "judge_score": 0.6,
+      "price": 9.88,
+      "stop_loss": 9.65,
+      "take_profit": 11.86,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002354",
+      "stock_name": "天娱数科",
+      "judge_score": 0.636,
+      "price": 6.37,
+      "stop_loss": 6.06,
+      "take_profit": 7.64,
+      "kelly_fraction": 0.25,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002414",
+      "stock_name": "高德红外",
+      "judge_score": 0.616,
+      "price": 15.15,
+      "stop_loss": 14.33,
+      "take_profit": 18.18,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002050",
+      "stock_name": "三花智控",
+      "judge_score": 0.605,
+      "price": 48.16,
+      "stop_loss": 45.9,
+      "take_profit": 57.79,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002266",
+      "stock_name": "浙富控股",
+      "judge_score": 0.599,
+      "price": 5.51,
+      "stop_loss": 5.23,
+      "take_profit": 6.61,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002202",
+      "stock_name": "金风科技",
+      "judge_score": 0.6,
+      "price": 27.94,
+      "stop_loss": 26.26,
+      "take_profit": 33.53,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002354",
+      "stock_name": "天娱数科",
+      "judge_score": 0.552,
+      "price": 6.37,
+      "stop_loss": 6.06,
+      "take_profit": 7.64,
+      "kelly_fraction": 0.25,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002414",
+      "stock_name": "高德红外",
+      "judge_score": 0.616,
+      "price": 15.15,
+      "stop_loss": 14.33,
+      "take_profit": 18.18,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600160",
+      "stock_name": "巨化股份",
+      "judge_score": 0.688,
+      "price": 37.04,
+      "stop_loss": 35.05,
+      "take_profit": 44.45,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "001286",
+      "stock_name": "陕西能源",
+      "judge_score": 0.598,
+      "price": 11.91,
+      "stop_loss": 11.38,
+      "take_profit": 14.29,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002202",
+      "stock_name": "金风科技",
+      "judge_score": 0.6,
+      "price": 27.94,
+      "stop_loss": 26.26,
+      "take_profit": 33.53,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002354",
+      "stock_name": "天娱数科",
+      "judge_score": 0.636,
+      "price": 6.37,
+      "stop_loss": 6.06,
+      "take_profit": 7.64,
+      "kelly_fraction": 0.25,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002414",
+      "stock_name": "高德红外",
+      "judge_score": 0.616,
+      "price": 15.15,
+      "stop_loss": 14.33,
+      "take_profit": 18.18,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-07",
+      "reason": "l4_judge:看多",
+      "status": "pending"
+    },
+    {
+      "stock_code": "600519",
+      "stock_name": "贵州茅台",
+      "judge_score": 0.72,
+      "price": 1850.0,
+      "stop_loss": 1700.0,
+      "take_profit": 2200.0,
+      "kelly_fraction": 0.15,
+      "signal_date": "2026-05-31",
+      "reason": "资金流入+技术突破",
+      "status": "pending"
+    },
+    {
+      "stock_code": "002916",
+      "stock_name": "深南电路",
+      "judge_score": 0.563,
+      "price": 411.41,
+      "stop_loss": -0.08,
+      "take_profit": 0.2,
+      "kelly_fraction": 0.23,
+      "signal_date": "2026-05-31",
+      "reason": "l4_judge:建议买入",
+      "status": "pending"
+    }
+  ],
+  "_freeze_rules": {
+    "level_10days": {
+      "trigger": "初筛失败1次（不满足买入条件但无3条件同时否决）",
+      "duration_days": 10,
+      "upgrade_after_10days": "重跑仍失败→3months"
+    },
+    "level_3months": {
+      "trigger": "10天冷冻到期后重跑仍失败，或3条件同时触发",
+      "duration_days": 90,
+      "conditions": [
+        "主力近5日净流出 > 1亿",
+        "均线空头排列（MA5 < MA10 < MA20）",
+        "外内盘比 < 0.75"
+      ]
+    },
+    "three_strike_rule": {
+      "description": "3条件同时触发才升级3个月冷冻，单条件最多10天",
+      "conditions": [
+        "主力近5日净流出 > 1亿",
+        "均线空头排列",
+        "外内盘比 < 0.75"
+      ]
+    }
+  }
+}

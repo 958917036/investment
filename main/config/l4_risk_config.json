@@ -1,0 +1,35 @@
+{
+  "_comment": "风控模块配置 v1（2026-05-04）",
+  "_description": "风险管理器的配置参数，从文件加载而非硬编码",
+  "total_capital": 100000,
+  "risk": {
+    "max_single_position": 0.20,
+    "max_top3_concentration": 0.50,
+    "max_sector_concentration": 0.35,
+    "stop_loss_default": -0.08,
+    "take_profit_default": 0.20,
+    "var_95_limit": 0.03,
+    "volatility_warning": 0.40,
+    "volatility_danger": 0.60,
+    "max_correlation": 0.70,
+    "kelly_fraction_limit": 0.25,
+    "margin_call_threshold": 0.85
+  },
+  "position_levels": [
+    {"threshold": 0.30, "label": "重仓"},
+    {"threshold": 0.20, "label": "中等仓位"},
+    {"threshold": 0.15, "label": "轻仓"},
+    {"threshold": 0.10, "label": "试探仓位"},
+    {"threshold": 0.05, "label": "迷你仓位"},
+    {"threshold": 0.00, "label": "不建议买入"}
+  ],
+  "kelly_win_rates": {
+    "default_kelly": 0.10,
+    "score_80_plus": 0.65,
+    "score_65_plus": 0.55,
+    "score_50_plus": 0.45,
+    "score_below_50": 0.35
+  },
+  "atr_multiplier": 1.5,
+  "default_volatility": 0.30
+}

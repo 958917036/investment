@@ -1,0 +1,91 @@
+{
+  "review_id": "20260531_6",
+  "date": "2026-05-31",
+  "trades_reviewed": 6,
+  "winning_trades": 3,
+  "losing_trades": 3,
+  "win_rate": 0.5,
+  "single_trade_analysis": [
+    {
+      "trade_id": "20240102_A",
+      "symbol": "A",
+      "return_pct": 0.1,
+      "what_happened": {
+        "price_moved": "+10.0%",
+        "holding_days": 10
+      },
+      "failure_analysis": null
+    },
+    {
+      "trade_id": "20240102_B",
+      "symbol": "B",
+      "return_pct": 0.05,
+      "what_happened": {
+        "price_moved": "+5.0%",
+        "holding_days": 10
+      },
+      "failure_analysis": null
+    },
+    {
+      "trade_id": "20240102_C",
+      "symbol": "C",
+      "return_pct": 0.02,
+      "what_happened": {
+        "price_moved": "+2.0%",
+        "holding_days": 10
+      },
+      "failure_analysis": null
+    },
+    {
+      "trade_id": "20240102_D",
+      "symbol": "D",
+      "return_pct": -0.05,
+      "what_happened": {
+        "price_moved": "-5.0%",
+        "holding_days": 10
+      },
+      "failure_analysis": null
+    },
+    {
+      "trade_id": "20240102_E",
+      "symbol": "E",
+      "return_pct": -0.08,
+      "what_happened": {
+        "price_moved": "-8.0%",
+        "holding_days": 10
+      },
+      "failure_analysis": {
+        "issue": "BUY决策但实际下跌",
+        "layer_responsible": "L4",
+        "lessons": [
+          "检查止损执行是否到位"
+        ]
+      }
+    },
+    {
+      "trade_id": "20240102_F",
+      "symbol": "F",
+      "return_pct": -0.03,
+      "what_happened": {
+        "price_moved": "-3.0%",
+        "holding_days": 10
+      },
+      "failure_analysis": null
+    }
+  ],
+  "patterns": [],
+  "cpcv_validation": {
+    "n_trades": 6,
+    "n_folds": 5,
+    "avg_overfitting_ratio": 6.4825396825396835,
+    "pbo": 1.0,
+    "hit_rate_train": 0.51,
+    "hit_rate_validate": 0.6,
+    "return_train_avg": 0.003000000000000002,
+    "return_validate_avg": 0.015000000000000003,
+    "verdict": "FAIL",
+    "notes": "PBO=100.0%>15%，策略可能过度优化; 收益率差异=400.0%，可能存在过拟合"
+  },
+  "parameter_changes": [],
+  "approved_parameter_changes": []
+}

@@ -1,0 +1,154 @@
+{
+  "timestamp": "2026-05-31T18:25:00.213012",
+  "layers": [
+    {
+      "layer": "L1",
+      "files": 1,
+      "results": [
+        {
+          "file": "test_l1_runner.py",
+          "passed": 11,
+          "failed": 0,
+          "elapsed": 74.7,
+          "result_line": "11 通过, 0 失败",
+          "success": true,
+          "output": "=================================\n▶ by_strategy(pullback)\n  输入: by_strategy, strategy=pullback, test_limit=3\n  预期: stock_count 在 1-3 范围内\n  实际: stock_count=3\n  [PASS]\n  耗时: 8.57秒\n[TEST] test_l1_runner::by_strategy(pullback) ▶ END  elapsed=8.6s  status=PASS\n[TEST] test_l1_runner::by_strategy(quality_value) ▶ START\n\n============================================================\n▶ by_strategy(quality_value)\n  输入: by_strategy, strategy=quality_value, test_limit=3\n  预期: stock_count 在 1-3 范围内\n  实际: stock_count=3\n  [PASS]\n  耗时: 8.65秒\n[TEST] test_l1_runner::by_strategy(quality_value) ▶ END  elapsed=8.7s  status=PASS\n[TEST] test_l1_runner::unknown_mode ▶ START\n\n============================================================\n▶ unknown_mode\n  输入: unknown_mode, params={}\n  预期: stocks=[], stock_count=0, layer=L1\n  实际: stocks=[], stock_count=0, layer=L1\n  [PASS]\n  耗时: 0.00秒\n[TEST] test_l1_runner::unknown_mode ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l1_runner ▶ END  passed=11 failed=0 elapsed=74.7s  status=PASS\n\n============================================================\n结果: 11/11 通过, 0 失败\n============================================================\n\n  0%|          | 0/16 [00:00<?, ?it/s]\n  6%|▋         | 1/16 [00:00<00:03,  4.12it/s]\n 12%|█▎        | 2/16 [00:00<00:04,  3.26it/s]\n 19%|█▉        | 3/16 [00:00<00:03,  3.82it/s]\n 25%|██▌       | 4/16 [00:01<00:03,  3.59it/s]\n 31%|███▏      | 5/16 [00:01<00:02,  3.71it/s]\n 38%|███▊      | 6/16 [00:01<00:02,  3.41it/s]\n 44%|████▍     | 7/16 [00:01<00:02,  3.54it/s]\n 50%|█████     | 8/16 [00:02<00:02,  3.63it/s]\n 56%|█████▋    | 9/16 [00:02<00:01,  3.65it/s]\n 62%|██████▎   | 10/16 [00:02<00:01,  3.70it/s]\n 69%|██████▉   | 11/16 [00:03<00:01,  3.79it/s]\n 75%|███████▌  | 12/16 [00:04<00:02,  1.77it/s]\n 81%|████████▏ | 13/16 [00:04<00:01,  2.15it/s]\n 88%|████████▊ | 14/16 [00:04<00:00,  2.53it/s]\n 94%|█████████▍| 15/16 [00:04<00:00,  2.92it/s]\n100%|██████████| 16/16 [00:05<00:00,  2.80it/s]\n                                               \n"
+        }
+      ],
+      "total_passed": 11,
+      "total_failed": 0,
+      "total_elapsed": 74.7
+    },
+    {
+      "layer": "L2",
+      "files": 1,
+      "results": [
+        {
+          "file": "test_l2_runner.py",
+          "passed": 0,
+          "failed": 0,
+          "elapsed": 151.39160895347595,
+          "result_line": "ERROR: cannot access local variable 'passed' where it is not associated with a value",
+          "success": false,
+          "output": "cannot access local variable 'passed' where it is not associated with a value"
+        }
+      ],
+      "total_passed": 0,
+      "total_failed": 0,
+      "total_elapsed": 151.39160895347595
+    },
+    {
+      "layer": "L3",
+      "files": 4,
+      "results": [
+        {
+          "file": "test_l3_quant_runner.py",
+          "passed": 11,
+          "failed": 0,
+          "elapsed": 0.0,
+          "result_line": "11 通过, 0 失败",
+          "success": true,
+          "output": "5%，行业强势', '利好事件：业绩预增50%', '利好事件：中标大单', '分析师评级：buy，机构看多'], 'bear_arguments': ['无明显看空信号，需持续关注风险'], 'final_verdict': '看多', 'confidence': 0.73, '_raw': {'stock_code': '600519', 'stock_name': '贵州茅台', 'debate_date': '2026-05-31', 'rounds': [{'round_number': 1, 'bull_arguments': [{'side': 'bull', 'title': '均线多头排列，上升趋势确立', 'evidence': ['均线多头排列，上升趋势确立'], 'strength': 0.8, 'source': '技术面'}, {'side': 'bull', 'title': 'MACD金叉信号，动能转多', 'evidence': ['MACD金叉信号，动能转多'], 'strength': 0.75, 'source': '技术面'}, {'side': 'bull', 'title': 'ROE=28.5%，盈利质量优秀', 'evidence': ['ROE=28.5%，盈利质量优秀'], 'strength': 0.7, 'source': '基本面'}, {'side': 'bull', 'title': '板块排名前15%，行业强势', 'evidence': ['板块排名前15%，行业强势'], 'strength': 0.6, 'source': '板块'}, {'side': 'bull', 'title': '利好事件：业绩预增50%', 'evidence': ['利好事件：业绩预增50%'], 'strength': 0.6, 'source': '事件信号'}, {'side': 'bull', 'title': '利好事件：中标大单', 'evidence': ['利好事件：中标大单'], 'strength': 0.6, 'source': '事件信号'}, {'side': 'bull', 'title': '分析师评级：buy，机构看多', 'evidence': ['分析师评级：buy，机构看多'], 'strength': 0.6, 'source': '事件驱动'}], 'bear_arguments': [{'side': 'bear', 'title': '无明显看空信号，需持续关注风险', 'evidence': ['无明显看空信号，需持续关注风险'], 'strength': 0.3, 'source': '综合'}], 'bull_score': 0.66, 'bear_score': 0.3, 'verdict': '第1轮：看多方略占优势（+0.36）'}], 'final_verdict': '看多', 'confidence': 0.73, 'bull_total_score': 0.66, 'bear_total_score': 0.3, 'key_risks': ['无明显看空信号，需持续关注风险'], 'key_opportunities': ['均线多头排列，上升趋势确立', 'MACD金叉信号，动能转多', 'ROE=28.5%，盈利质量优秀', '板块排名前15%，行业强势', '利好事件：业绩预增50%', '利好事件：中标大单', '分析师评级：buy，机构看多'], 'debate_duration_ms': 0.1}}, 'quality_overall': 'ok', 'failed_dimensions': [], 'duration_ms': 0.3}\n  [逻辑] technical_score = 100\n  [通过] five_score=70.04, technical_score=100, quality=ok\n[TEST] test_l3_quant_runner::field_type_error ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner ▶ END  passed=11 failed=0 elapsed=0.0s  status=PASS\n\n============================================================\n结果: 11/11 通过, 0 失败\n============================================================\n"
+        },
+        {
+          "file": "test_l3_score_calculation.py",
+          "passed": 0,
+          "failed": 0,
+          "elapsed": 1.4647371768951416,
+          "result_line": "ERROR: cannot access local variable 'passed' where it is not associated with a value",
+          "success": false,
+          "output": "cannot access local variable 'passed' where it is not associated with a value"
+        },
+        {
+          "file": "test_l3_veto_logic.py",
+          "passed": 8,
+          "failed": 0,
+          "elapsed": 0.05301713943481445,
+          "result_line": "结果: 8/8 通过, 0 失败",
+          "success": true,
+          "output": "\n▶ veto资金面净流出超限\n  [PASS] veto_count=1, pass_count=0\n\n▶ veto技术面双空头\n  [PASS] veto_count=1, reasons=['技术面: 均线空头+MACD死叉共振']\n\n▶ pass正常股票\n  [PASS] veto_count=0, pass_count=1\n\n▶ pass资金流None\n  [PASS] pass_count=1, veto_count=0\n\n▶ 单只失败不影响其他\n  [PASS] vetoed=['600519', '600036'], passed=['300750']\n\n▶ empty_stocks\n  [PASS] empty: veto_count=0, pass_count=0\n\n▶ missing_moneyflow_data_key\n  [PASS] missing key: veto_count=1\n\n▶ moneyflow_data空字典\n  [PASS] empty dict: pass_count=1\n\n============================================================\n结果: 8/8 通过, 0 失败\n============================================================\n"
+        },
+        {
+          "file": "test_portfolio_optimizer.py",
+          "passed": 0,
+          "failed": 0,
+          "elapsed": 1.608360767364502,
+          "result_line": "ERROR: cannot access local variable 'passed' where it is not associated with a value",
+          "success": false,
+          "output": "cannot access local variable 'passed' where it is not associated with a value"
+        }
+      ],
+      "total_passed": 19,
+      "total_failed": 0,
+      "total_elapsed": 3.126115083694458
+    },
+    {
+      "layer": "L3_persona",
+      "files": 1,
+      "results": [
+        {
+          "file": "test_l3_persona_runner.py",
+          "passed": 0,
+          "failed": 0,
+          "elapsed": 163.98300409317017,
+          "result_line": "ERROR: cannot access local variable 'failed' where it is not associated with a value",
+          "success": false,
+          "output": "cannot access local variable 'failed' where it is not associated with a value"
+        }
+      ],
+      "total_passed": 0,
+      "total_failed": 0,
+      "total_elapsed": 163.98300409317017
+    },
+    {
+      "layer": "L4",
+      "files": 1,
+      "results": [
+        {
+          "file": "test_l4_runner.py",
+          "passed": 4,
+          "failed": 0,
+          "elapsed": 0.0,
+          "result_line": "4 通过, 0 失败",
+          "success": true,
+          "output": "============================================================\nL4 Judge Runner 测试\n============================================================\n[TEST] test_l4_runner ▶ START  tests=4\n[TEST] test_l4_runner::run_risk_judgment ▶ START\n\n============================================================\n▶ run_risk_judgment\n  [PASS] decision=BUY, judge_score=0.567, risk_score=22, risk_level=normal, weight=0.0993, stop_loss=-0.08%, take_profit=0.2%\n[TEST] test_l4_runner::run_risk_judgment ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner::judge_components ▶ START\n\n============================================================\n▶ judge_components\n  [PASS] veto=0.720×0.5 + debate=0.495×0.25 + persona=0.333×0.25 = 0.567\n[TEST] test_l4_runner::judge_components ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner::quality_degraded_lowers_score ▶ START\n\n============================================================\n▶ quality_degraded_lowers_score\n  [PASS] degraded(0.510) <= ok(0.567)\n[TEST] test_l4_runner::quality_degraded_lowers_score ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner::decision_thresholds ▶ START\n\n============================================================\n▶ decision_thresholds\n  [PASS] score=80 → decision=BUY (judge_score=0.607)\n[TEST] test_l4_runner::decision_thresholds ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner ▶ END  passed=4 failed=0 elapsed=0.0s  status=PASS\n\n============================================================\n结果: 4/4 通过, 0 失败\n============================================================\n"
+        }
+      ],
+      "total_passed": 4,
+      "total_failed": 0,
+      "total_elapsed": 0.0
+    },
+    {
+      "layer": "L5",
+      "files": 2,
+      "results": [
+        {
+          "file": "test_l5_freeze_manager.py",
+          "passed": 0,
+          "failed": 0,
+          "elapsed": 0.21793317794799805,
+          "result_line": "ERROR: cannot access local variable 'passed' where it is not associated with a value",
+          "success": false,
+          "output": "cannot access local variable 'passed' where it is not associated with a value"
+        },
+        {
+          "file": "test_l5_review_engine.py",
+          "passed": 0,
+          "failed": 0,
+          "elapsed": 0.3020620346069336,
+          "result_line": "ERROR: cannot access local variable 'passed' where it is not associated with a value",
+          "success": false,
+          "output": "cannot access local variable 'passed' where it is not associated with a value"
+        }
+      ],
+      "total_passed": 0,
+      "total_failed": 0,
+      "total_elapsed": 0.5199952125549316
+    }
+  ],
+  "summary": {
+    "total_passed": 34,
+    "total_failed": 0,
+    "total_elapsed": 393.7207233428955
+  }
+}

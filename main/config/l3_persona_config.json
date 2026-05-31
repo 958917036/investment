@@ -1,0 +1,30 @@
+{
+  "_comment": "Persona层配置 v1（2026-05-04）",
+  "_description": "LLM persona相关硬编码参数迁移至此",
+  "default_personas": ["buffett", "lynch", "druckenmiller"],
+  "available_personas": [
+    "buffett",
+    "lynch",
+    "druckenmiller",
+    "graham",
+    "burry",
+    "taleb",
+    "ackman",
+    "pabrai",
+    "cathie_wood",
+    "munger",
+    "phil_fisher",
+    "jhunjhunwala"
+  ],
+  "api": {
+    "temperature": 0.3,
+    "max_tokens": 4096,
+    "timeout": 120
+  },
+  "verdict_defaults": {
+    "score": 0,
+    "grade": "D",
+    "verdict": "REJECT",
+    "rationale": "数据不足"
+  }
+}

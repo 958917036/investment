@@ -1,0 +1,62 @@
+{
+  "_comment": "L2数据层统一配置 v1（2026-05-04）",
+  "_description": "L2并发控制、超时、字段映射、默认值等硬编码参数迁移至此",
+  "test_limit": 3,
+  "concurrent": {
+    "max_fund_flow": 3,
+    "requests_per_second": 2,
+    "fund_flow_interval": 0.5,
+    "max_bao": 10,
+    "max_concurrent_bao": 10
+  },
+  "timeouts": {
+    "tencent": 10,
+    "curl": 10,
+    "bao": 15,
+    "eastmoney": 10
+  },
+  "defaults": {
+    "sector_rank": 50,
+    "stock_rank": 9999,
+    "rsi": 50,
+    "outer_inner_ratio": 1.0
+  },
+  "field_indices": {
+    "name": 1,
+    "code": 2,
+    "price": 3,
+    "prev_close": 4,
+    "open": 5,
+    "volume": 6,
+    "outer_disk": 7,
+    "inner_disk": 8,
+    "high": 33,
+    "low": 34,
+    "amount": 37,
+    "turnover": 38,
+    "pe": 39,
+    "week52_high": 47,
+    "week52_low": 48,
+    "amplitude": 49,
+    "pb": 46,
+    "market_cap": 45
+  },
+  "batch": {
+    "l2_batch_size": 100,
+    "max_stocks": 2000,
+    "chunk_financials": 30,
+    "chunk_fund_flow": 50,
+    "chunk_events": 30,
+    "chunk_sector": 50
+  },
+  "api": {
+    "eastmoney_fund_flow_url": "https://push2his.eastmoney.com/api/qt/stock/fflow/kline/get"
+  },
+  "budget": {
+    "events_max_budget_sec": 20,
+    "events_max_consec_fail": 5,
+    "events_item_timeout_sec": 3,
+    "sector_max_budget_sec": 30,
+    "sector_max_consec_fail": 5
+  }
+}

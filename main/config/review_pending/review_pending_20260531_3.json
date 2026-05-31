@@ -1,0 +1,56 @@
+{
+  "review_id": "20260531_3",
+  "date": "2026-05-31",
+  "trades_reviewed": 3,
+  "winning_trades": 0,
+  "losing_trades": 3,
+  "win_rate": 0.0,
+  "single_trade_analysis": [
+    {
+      "trade_id": "20240102_A",
+      "symbol": "A",
+      "return_pct": -0.04,
+      "what_happened": {
+        "price_moved": "-4.0%",
+        "holding_days": 3
+      },
+      "failure_analysis": null
+    },
+    {
+      "trade_id": "20240102_B",
+      "symbol": "B",
+      "return_pct": -0.03,
+      "what_happened": {
+        "price_moved": "-3.0%",
+        "holding_days": 4
+      },
+      "failure_analysis": null
+    },
+    {
+      "trade_id": "20240102_C",
+      "symbol": "C",
+      "return_pct": -0.05,
+      "what_happened": {
+        "price_moved": "-5.0%",
+        "holding_days": 2
+      },
+      "failure_analysis": null
+    }
+  ],
+  "patterns": [
+    {
+      "pattern_id": "P001",
+      "description": "短期快速止损",
+      "frequency": 2,
+      "examples": [
+        "A",
+        "C"
+      ],
+      "root_cause": "可能存在过早买入或止损设置不合理",
+      "fix": "检查止损阈值设置"
+    }
+  ],
+  "cpcv_validation": null,
+  "parameter_changes": [],
+  "approved_parameter_changes": []
+}

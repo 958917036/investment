@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 6% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 16%;
+    --muted-foreground: 240 4% 55%;
+    --accent: 240 5% 18%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 25%;
+    --input: 240 5% 18%;
+    --ring: 262 83% 58%;
+    --radius: 0.5rem;
+    /* Decision colors */
+    --buy: 142 76% 45%;
+    --sell: 0 84% 60%;
+    --watch: 48 96% 53%;
+    --neutral: 220 9% 46%;
+    /* Gradient */
+    --gradient-from: 262 83% 58%;
+    --gradient-to: 277 83% 65%;
+    /* Shennong Brand Colors */
+    --shennong-green: 142 76% 45%;
+    --shennong-gold: 48 96% 53%;
+    --shennong-primary: 162 74% 42%;
+    --shennong-glow: 142 76% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); }
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--muted) / 0.5) 50%, hsl(var(--muted)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Count-up animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-count-up {
+  animation: count-up 0.4s ease-out forwards;
+}
+
+/* Fade-slide page transition */
+@keyframes fade-slide-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-slide {
+  animation: fade-slide-in 0.25s ease-out forwards;
+}
+
+/* Glow border on hover */
+.hover-glow {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.15);
+  border-color: hsl(var(--primary) / 0.4);
+}
+
+/* Glass card */
+.glass-card {
+  background: hsl(var(--card) / 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient button */
+.gradient-btn {
+  background: linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
+  transition: all 0.2s ease;
+}
+.gradient-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 24px hsl(var(--primary) / 0.35);
+}
+.gradient-btn:active {
+  transform: scale(0.98);
+}
+
+/* Pulse ring */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4); }
+  70% { box-shadow: 0 0 0 8px hsl(var(--primary) / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0); }
+}
+.pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* Decision badge glow */
+.decision-buy { box-shadow: 0 0 12px hsl(var(--buy) / 0.3); }
+.decision-sell { box-shadow: 0 0 12px hsl(var(--sell) / 0.3); }
+.decision-watch { box-shadow: 0 0 12px hsl(var(--watch) / 0.3); }
+
+/* Tab indicator */
+.tab-indicator {
+  position: relative;
+}
+.tab-indicator::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
+  border-radius: 1px;
+}
+
+/* Number ticker */
+.number-ticker {
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-slide-in 0.3s ease-out forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 360ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 420ms; }
+
+/* ========== Shennong Brand Enhancements ========== */
+
+/* Card hover shadow depth effect */
+.card-hover-depth {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover-depth:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px hsl(var(--shennong-glow) / 0.15), 0 0 0 1px hsl(var(--shennong-glow) / 0.1);
+}
+
+/* Enhanced glow for dark theme */
+.glow-green {
+  box-shadow: 0 0 20px hsl(var(--shennong-green) / 0.3), 0 0 40px hsl(var(--shennong-green) / 0.1);
+}
+.glow-gold {
+  box-shadow: 0 0 20px hsl(var(--shennong-gold) / 0.3), 0 0 40px hsl(var(--shennong-gold) / 0.1);
+}
+.glow-primary {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
+}
+
+/* Key metric gradient text */
+.metric-gradient {
+  background: linear-gradient(135deg, hsl(var(--shennong-green)), hsl(var(--shennong-gold)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.metric-gradient-alt {
+  background: linear-gradient(135deg, hsl(var(--shennong-gold)), hsl(var(--primary)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Large metric display */
+.metric-display {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle scale animation on hover */
+.scale-hover {
+  transition: transform 0.2s ease;
+}
+.scale-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Shennong logo glow */
+.logo-glow {
+  filter: drop-shadow(0 0 8px hsl(var(--shennong-green) / 0.4));
+}
+
+/* Pulse glow animation */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px hsl(var(--shennong-glow) / 0.3); }
+  50% { box-shadow: 0 0 30px hsl(var(--shennong-glow) / 0.5); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Entrance animation with scale */
+@keyframes scale-fade-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-scale-fade {
+  animation: scale-fade-in 0.3s ease-out forwards;
+}
+
+/* Shennong section header style */
+.shennong-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.shennong-section-header::before {
+  content: '';
+  width: 4px;
+  height: 1.25rem;
+  background: linear-gradient(180deg, hsl(var(--shennong-green)), hsl(var(--shennong-gold)));
+  border-radius: 2px;
+}
+
+/* Floating particles effect (ambient) */
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+  50% { transform: translateY(-10px) rotate(180deg); opacity: 0.6; }
+}
+.float-particle {
+  animation: float-particle 4s ease-in-out infinite;
+}
+
+/* Buy/Sell color glow enhancement */
+.buy-glow {
+  box-shadow: 0 0 15px hsl(var(--buy) / 0.4);
+}
+.sell-glow {
+  box-shadow: 0 0 15px hsl(var(--sell) / 0.4);
+}
+.watch-glow {
+  box-shadow: 0 0 15px hsl(var(--watch) / 0.4);
+}

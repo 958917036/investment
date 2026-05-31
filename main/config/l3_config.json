@@ -1,0 +1,45 @@
+{
+  "_comment": "L3量化分析层统一配置 v1（2026-05-04）",
+  "_description": "L3评分权重、交易成本、veto规则等硬编码参数迁移至此",
+  "five_dimension_weights": {
+    "moneyflow": 0.35,
+    "technical": 0.35,
+    "fundamental": 0.10,
+    "sector": 0.10,
+    "event": 0.10
+  },
+  "l3_gate": {
+    "_comment": "五维度评分gate：低于阈值时跳过辩论和人格分析",
+    "five_score_threshold": 60
+  },
+  "debate": {
+    "max_rounds": 1,
+    "confidence_default": 0.5
+  },
+  "trading": {
+    "commission_rate": 0.0003,
+    "slippage": 0.001,
+    "tax_rate": 0.001
+  },
+  "backtest": {
+    "commission_rate": 0.0003,
+    "slippage": 0.001,
+    "tax_rate": 0.001,
+    "position_limits": {
+      "main": 0.10,
+      "chinext": 0.20,
+      "star": 0.20,
+      "bj": 0.30
+    }
+  },
+  "defaults": {
+    "price_fallback": 50.0,
+    "five_score_fallback": 50,
+    "grade_fallback": "C",
+    "verdict_fallback": "中性观望"
+  },
+  "veto": {
+    "moneyflow_threshold": -50000000,
+    "_comment": "资金流veto阈值：main_net_flow_5d < -5000万则veto"
+  }
+}

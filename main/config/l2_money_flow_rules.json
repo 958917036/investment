@@ -1,0 +1,10 @@
+{
+  "net_outflow_threshold_daily": 50000000,
+  "main_outflow_days_trigger": 3,
+  "retail_inflow_alert_threshold": 30000000,
+  "volume_pump_threshold": 2.0,
+  "score_thresholds": {
+    "moneyflow_weak": 30,
+    "moneyflow_abort": 20
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "_comment": "批处理统一配置 v1.0 (2026-05-04)",
+  "_description": "控制批量选股的批大小、缓存、并行、重试等行为",
+  "batch": {
+    "default_size": 50,
+    "max_size": 200,
+    "min_size": 10,
+    "l2_chunk_size": 50,
+    "l3_batch_size": 50,
+    "max_retries": 3,
+    "retry_interval_seconds": 60
+  },
+  "cache": {
+    "enabled": true,
+    "ttl_seconds": 1800,
+    "run_isolation": true,
+    "sources": {
+      "tencent_api": 60,
+      "baostock_daily": 300,
+      "fund_flow": 600,
+      "financial": 86400,
+      "sector": 1800,
+      "event": 3600
+    }
+  },
+  "fresh_data": {
+    "force_refresh_default": false,
+    "exclude_sources": []
+  },
+  "parallel": {
+    "l2_enabled": false,
+    "l3_enabled": true,
+    "max_workers": 5
+  },
+  "schedule": {
+    "morning_window": "6:00-7:05",
+    "afternoon_window": "14:30-15:30",
+    "evening_window": "19:00-20:00",
+    "enable_anytime": true
+  },
+  "checkpoint": {
+    "enabled": true,
+    "dir": "main/checkpoints",
+    "backup_enabled": true
+  }
+}

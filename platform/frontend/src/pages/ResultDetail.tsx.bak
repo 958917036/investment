@@ -1,0 +1,966 @@
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { DecisionBadge } from '@/components/DecisionBadge';
+import { PriceChart } from '@/components/PriceChart';
+import { L2Card } from '@/components/L2Card';
+import { L3Card } from '@/components/L3Card';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Progress } from '@/components/ui/progress';
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from 'recharts';
+import { getResult, addToPortfolio, addToWatchlist, getCachedStockPrice, type PriceHistoryItem } from '@/lib/api';
+import { formatDate, getMarketLabel } from '@/lib/utils';
+import type { AnalysisRecord } from '@/types';
+import { 
+  ArrowLeft, History, RefreshCw, Eye, PieChart, TrendingUp, 
+  Copy, Check, Leaf, Target, AlertTriangle, Award, BarChart3,
+  DollarSign, Percent, Activity, Shield, TrendingDown
+} from 'lucide-react';
+
+const dimensionLabels: Record<string, string> = {
+  growth: '成长',
+  value: '价值',
+  momentum: '动量',
+  quality: '质量',
+  risk: '风险',
+};
+
+const dimensionColors = ['#22c55e', '#3b82f6', '#f59e0b', '#8b5cf6', '#ef4444'];
+
+export function ResultDetail() {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const [result, setResult] = useState<AnalysisRecord | null>(null);
+  const [priceHistory, setPriceHistory] = useState<PriceHistoryItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [portfolioOpen, setPortfolioOpen] = useState(false);
+  const [watchlistOpen, setWatchlistOpen] = useState(false);
+  const [quantity, setQuantity] = useState(100);
+  const [cost, setCost] = useState<number>(0);
+  const [linkCopied, setLinkCopied] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<{ type: 'portfolio' | 'watchlist'; visible: boolean }>({ type: 'portfolio', visible: false });
+
+  // Guard: prevent render if result is not fully loaded
+  if (!loading && result === null && !error) {
+    return (
+      <div className="space-y-6 animate-slide-up">
+        <Card>
+          <CardContent className="py-8 text-center">
+            <div className="text-muted-foreground mb-4">加载中...</div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    } catch {
+      // fallback silently
+    }
+  };
+
+  useEffect(() => {
+    if (id) {
+      loadResult();
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (portfolioOpen && priceHistory.length > 0) {
+      const latestPrice = priceHistory[priceHistory.length - 1].close;
+      setCost(latestPrice);
+    }
+  }, [portfolioOpen, priceHistory]);
+
+  const loadResult = async () => {
+    if (!id) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const [data] = await Promise.all([getResult(id)]);
+      setResult(data);
+      if (data?.stock_code) {
+        try {
+          const p = await getCachedStockPrice(data.stock_code);
+          setPriceHistory(p.price_history || []);
+        } catch {
+          setPriceHistory([]);
+        }
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '加载失败');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAddToPortfolio = async () => {
+    if (!result) return;
+    try {
+      await addToPortfolio({
+        stock_code: result.stock_code,
+        market: result.market,
+        quantity,
+        avg_cost: cost,
+      });
+      setPortfolioOpen(false);
+      setSuccessMessage({ type: 'portfolio', visible: true });
+      setTimeout(() => setSuccessMessage(prev => ({ ...prev, visible: false })), 5000);
+    } catch (err) {
+      // silent fail
+    }
+  };
+
+  const handleAddToWatchlist = async () => {
+    if (!result) return;
+    try {
+      await addToWatchlist({
+        stock_code: result.stock_code,
+        market: result.market,
+      });
+      setWatchlistOpen(false);
+      setSuccessMessage({ type: 'watchlist', visible: true });
+      setTimeout(() => setSuccessMessage(prev => ({ ...prev, visible: false })), 5000);
+    } catch (err) {
+      // silent fail
+    }
+  };
+
+  // ========== Data Extraction ==========
+  const l1Data = (result as unknown as Record<string, unknown>).l1_data as Record<string, unknown> | undefined;
+  const l3Data = (result as unknown as Record<string, unknown>).l3_data as Record<string, unknown> | undefined;
+  const l4Data = (result as unknown as Record<string, unknown>).l4_data as Record<string, unknown> | undefined;
+
+  const l1Candidates = l1Data?.candidates as Array<Record<string, unknown>> | undefined;
+  const l1Candidate = l1Candidates?.[0] as Record<string, unknown> | undefined;
+
+  const l4Decisions = l4Data?.decisions as Array<Record<string, unknown>> | undefined;
+
+  const l4FiveScore = l4Decisions?.[0]?._five_score as Record<string, number> | undefined;
+  const l3Results = l3Data?.results as Array<Record<string, unknown>> | undefined;
+  const l3ScoreScore = (l3Results?.[0] as Record<string, unknown>)?.score as Record<string, unknown> | undefined;
+  const l3FiveScore = l3ScoreScore?.five_score as Record<string, number> | undefined;
+  const l4JudgeComponents = l4Decisions?.[0]?._judge_components as Record<string, number> | undefined;
+
+  const mappedScore = (() => {
+    if (l4FiveScore) {
+      return {
+        growth: l4FiveScore.growth ?? l4FiveScore.w1_score ?? 0,
+        value: l4FiveScore.value ?? l4FiveScore.verdict_score ?? 0,
+        momentum: l4FiveScore.momentum ?? l4FiveScore.w3_score ?? 0,
+        quality: l4FiveScore.quality ?? l4FiveScore.judge_score ?? 0,
+        risk: l4FiveScore.risk ?? 0,
+      };
+    }
+    if (l3FiveScore) {
+      return {
+        growth: l3FiveScore.growth ?? l3FiveScore.w1_score ?? 0,
+        value: l3FiveScore.value ?? l3FiveScore.verdict_score ?? 0,
+        momentum: l3FiveScore.momentum ?? l3FiveScore.w3_score ?? 0,
+        quality: l3FiveScore.quality ?? l3FiveScore.judge_score ?? 0,
+        risk: l3FiveScore.risk ?? 0,
+      };
+    }
+    if (l4JudgeComponents) {
+      return {
+        growth: l4JudgeComponents.w1_score ?? 0,
+        value: l4JudgeComponents.verdict_score ?? 0,
+        momentum: l4JudgeComponents.w3_score ?? 0,
+        quality: l4JudgeComponents.judge_score ?? 0,
+        risk: 1 - (l4JudgeComponents.volatility ?? 0),
+      };
+    }
+    return undefined;
+  })();
+
+  const l4Probability = l4JudgeComponents?._probability as number | undefined;
+  const l4ExpectedReturn = l4JudgeComponents?.expected_return as number | undefined;
+  const l4WorstLoss = l4JudgeComponents?.worst_loss as number | undefined;
+  const l4SuccessRate = l4JudgeComponents?.success_rate as number | undefined;
+
+  const weightedScore = (() => {
+    if (result?.score && typeof result.score === 'object' && result.score !== null && 'total' in result.score) {
+      return (result.score as Record<string, number>).total;
+    }
+    if (result?.judge_score && result.judge_score > 0) {
+      return Math.round(result.judge_score * 100) / 100;
+    }
+    if (mappedScore) {
+      const vals = Object.values(mappedScore).filter(v => v !== undefined) as number[];
+      if (vals.length > 0) {
+        return Math.round(vals.reduce((s, v) => s + v, 0) / vals.length * 100) / 100;
+      }
+    }
+    return undefined;
+  })();
+
+  const l4StopLoss = l4JudgeComponents?.stop_loss as number | undefined;
+  const l4TakeProfit = l4JudgeComponents?.take_profit as number | undefined;
+  const l4RecommendedPosition = l4JudgeComponents?.recommended_position as number | undefined;
+  const l4TargetPrice = l4JudgeComponents?.target_price as number | undefined;
+  const l4CoreConclusion = l4JudgeComponents?.core_conclusion as string | undefined;
+  const l4BuyReasons = l4JudgeComponents?.buy_reasons as string[] | undefined;
+  const l4RiskWarnings = l4JudgeComponents?.risk_warnings as string[] | undefined;
+
+  // Extract fundamental metrics from L1
+  const l1Metrics = {
+    pe: l1Candidate?.pe as number | undefined,
+    roe: l1Candidate?.roe as number | undefined,
+    grossMargin: l1Candidate?.gross_margin as number | undefined,
+    debtRatio: l1Candidate?.debt_ratio as number | undefined,
+    dividendYield: l1Candidate?.dividend_yield as number | undefined,
+  };
+
+  // ========== Loading Skeleton ==========
+  if (loading) {
+    return (
+      <div className="space-y-4 animate-slide-up">
+        {/* Header skeleton */}
+        <div className="flex items-center gap-4">
+          <Skeleton className="h-10 w-10" />
+          <Skeleton className="h-8 w-64" />
+        </div>
+        {/* Stock info bar skeleton */}
+        <Skeleton className="h-20" />
+        {/* Content skeleton */}
+        <div className="grid lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-2 space-y-4">
+            <Skeleton className="h-[400px]" />
+          </div>
+          <Skeleton className="h-[400px]" />
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !result) {
+    return (
+      <div className="space-y-6 animate-slide-up">
+        <Card>
+          <CardContent className="py-8 text-center">
+            <div className="text-destructive mb-4">{error || '结果未找到'}</div>
+            <Button variant="outline" onClick={() => navigate('/')}>
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              返回首页
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  // ========== Five Dimension Radar Data ==========
+  const radarData = mappedScore
+    ? Object.entries(mappedScore)
+        .filter(([key]) => ['growth', 'value', 'momentum', 'quality', 'risk'].includes(key))
+        .map(([key, value]) => ({
+          dimension: dimensionLabels[key] || key,
+          value: typeof value === 'number' ? Math.round(value * 100) / 100 : 0,
+          fullMark: 100,
+        }))
+    : [];
+
+  // ========== Helper Functions ==========
+  const formatPercent = (v: number | undefined, decimals = 2) => 
+    v !== undefined ? `${v >= 0 ? '+' : ''}${v.toFixed(decimals)}%` : '-';
+  
+  const formatPrice = (v: number | undefined) => 
+    v !== undefined ? `$${v.toFixed(2)}` : '-';
+
+  const getActionSuggestion = (decision: string) => {
+    switch (decision) {
+      case 'BUY': return '建议买入，可考虑分批建仓';
+      case 'SELL': return '建议卖出，建议分批减仓';
+      case 'WATCH': return '建议观望，等待更明确信号';
+      default: return '当前不建议操作';
+    }
+  };
+
+  // ========== Key Metrics Cards ==========
+  const KeyMetricCard = ({ icon: Icon, label, value, subValue, colorClass = 'text-foreground' }: {
+    icon: React.ElementType;
+    label: string;
+    value: string;
+    subValue?: string;
+    colorClass?: string;
+  }) => (
+    <div className="bg-muted/30 rounded-lg p-3 border border-border">
+      <div className="flex items-center gap-2 mb-1">
+        <Icon className="h-3.5 w-3.5 text-muted-foreground" />
+        <span className="text-xs text-muted-foreground">{label}</span>
+      </div>
+      <div className={`text-lg font-semibold ${colorClass}`}>{value}</div>
+      {subValue && <div className="text-xs text-muted-foreground">{subValue}</div>}
+    </div>
+  );
+
+  return (
+    <div className="space-y-4 animate-slide-up">
+      {/* Success Notification */}
+      {successMessage.visible && (
+        <div className="fixed top-4 right-4 z-50 bg-buy text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-slide-up">
+          <span>{successMessage.type === 'portfolio' ? '已添加到持仓' : '已添加到关注列表'}</span>
+          <Button variant="ghost" size="sm" className="text-white hover:bg-white/20" asChild>
+            <Link to={successMessage.type === 'portfolio' ? '/portfolio' : '/watchlist'}>
+              查看
+            </Link>
+          </Button>
+          <button onClick={() => setSuccessMessage(prev => ({ ...prev, visible: false }))} className="ml-2 opacity-70 hover:opacity-100">
+            ×
+          </button>
+        </div>
+      )}
+
+      {/* ========== Top Header ========== */}
+      <div className="flex items-center justify-between flex-wrap gap-4">
+        <div className="flex items-center gap-4">
+          <Button variant="ghost" size="icon" onClick={() => navigate(-1)}>
+            <ArrowLeft className="h-5 w-5" />
+          </Button>
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[hsl(142,76%,45%)] to-[hsl(48,96%,53%)] flex items-center justify-center logo-glow">
+              <Leaf className="h-6 w-6 text-white" />
+            </div>
+            <span className="text-lg font-semibold gradient-text hidden sm:inline">神农量化</span>
+          </div>
+        </div>
+        <div className="flex gap-2 flex-wrap">
+          <Button variant="outline" size="sm" asChild>
+            <Link to={`/history/${result.stock_code}`}>
+              <History className="mr-1.5 h-3.5 w-3.5" />
+              历史
+            </Link>
+          </Button>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={handleCopyLink}
+            className={linkCopied ? 'text-buy border-buy/50' : ''}
+          >
+            {linkCopied ? <Check className="mr-1.5 h-3.5 w-3.5" /> : <Copy className="mr-1.5 h-3.5 w-3.5" />}
+            {linkCopied ? '已复制' : '复制'}
+          </Button>
+          <Button variant="outline" size="sm" onClick={loadResult}>
+            <RefreshCw className="mr-1.5 h-3.5 w-3.5" />
+            刷新
+          </Button>
+        </div>
+      </div>
+
+      {/* ========== Stock Info Bar (Bloomberg/TradingView Style) ========== */}
+      <Card className="glow-primary">
+        <CardContent className="py-3">
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            {/* Left: Stock Identity */}
+            <div className="flex items-center gap-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <h1 className="text-2xl font-bold tracking-tight">{result.stock_code}</h1>
+                  {result.stock_name && (
+                    <span className="text-lg text-muted-foreground">{result.stock_name}</span>
+                  )}
+                </div>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <span className="text-xs px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+                    {result.market && getMarketLabel(result.market)}
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    {formatDate(result.timestamp)}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Center: Price & Change */}
+            <div className="flex items-center gap-6">
+              <div className="text-center">
+                <div className="text-xs text-muted-foreground mb-0.5">当前价</div>
+                <div className="text-xl font-bold">
+                  {formatPrice(l1Candidate?.price as number | undefined)}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-xs text-muted-foreground mb-0.5">涨跌幅</div>
+                <div className={`text-xl font-bold ${
+                  (l1Candidate?.change_pct as number || 0) >= 0 ? 'text-buy' : 'text-sell'
+                }`}>
+                  {formatPercent(l1Candidate?.change_pct as number | undefined)}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-xs text-muted-foreground mb-0.5">PE</div>
+                <div className="text-xl font-bold text-primary">
+                  {l1Metrics.pe?.toFixed(1) || '-'}
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Decision Badge (Prominent) */}
+            <div className="flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-primary/10 border border-primary/20">
+              <div className="text-xs text-muted-foreground">投资决策</div>
+              <DecisionBadge decision={result.final_decision} size="lg" />
+              <div className="text-xs text-muted-foreground capitalize">
+                {result.status}
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* ========== Main Content Area (2 Column Layout) ========== */}
+      <div className="grid lg:grid-cols-3 gap-4">
+        {/* Left: Main Content (2/3 width) */}
+        <div className="lg:col-span-2 space-y-4">
+          {/* Tabs for Main Content */}
+          <Tabs defaultValue="fundamental" className="w-full">
+            <TabsList className="grid w-full grid-cols-4">
+              <TabsTrigger value="fundamental">基本面</TabsTrigger>
+              <TabsTrigger value="technical">技术面</TabsTrigger>
+              <TabsTrigger value="score">量化评分</TabsTrigger>
+              <TabsTrigger value="plan">投资方案</TabsTrigger>
+            </TabsList>
+
+            {/* ========== Tab: Fundamental ========== */}
+            <TabsContent value="fundamental" className="space-y-4">
+              {/* Key Metrics Quick View */}
+              <div className="grid grid-cols-5 gap-2">
+                <KeyMetricCard
+                  icon={Activity}
+                  label="PE"
+                  value={l1Metrics.pe?.toFixed(1) || '-'}
+                  colorClass="text-primary"
+                />
+                <KeyMetricCard
+                  icon={Percent}
+                  label="ROE"
+                  value={l1Metrics.roe ? `${(l1Metrics.roe * 100).toFixed(1)}%` : '-'}
+                  colorClass="text-buy"
+                />
+                <KeyMetricCard
+                  icon={TrendingUp}
+                  label="毛利率"
+                  value={l1Metrics.grossMargin ? `${(l1Metrics.grossMargin * 100).toFixed(1)}%` : '-'}
+                  colorClass="text-momentum"
+                />
+                <KeyMetricCard
+                  icon={Shield}
+                  label="负债率"
+                  value={l1Metrics.debtRatio ? `${(l1Metrics.debtRatio * 100).toFixed(1)}%` : '-'}
+                  colorClass={l1Metrics.debtRatio && l1Metrics.debtRatio > 0.6 ? 'text-sell' : 'text-muted-foreground'}
+                />
+                <KeyMetricCard
+                  icon={DollarSign}
+                  label="股息率"
+                  value={l1Metrics.dividendYield ? `${(l1Metrics.dividendYield * 100).toFixed(2)}%` : '-'}
+                  colorClass="text-value"
+                />
+              </div>
+
+              {/* Fundamental Details Card */}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium flex items-center gap-2">
+                    <BarChart3 className="h-4 w-4" />
+                    基本面详情
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {l1Candidate ? (
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <div className="text-xs text-muted-foreground">市值</div>
+                        <div className="font-semibold">
+                          {typeof l1Candidate.market_cap === 'number' ? (
+                            l1Candidate.market_cap >= 1e12 ? `${(l1Candidate.market_cap / 1e12).toFixed(2)}T` :
+                            l1Candidate.market_cap >= 1e9 ? `${(l1Candidate.market_cap / 1e9).toFixed(2)}B` :
+                            `${l1Candidate.market_cap.toFixed(2)}`
+                          ) : '-'}
+                        </div>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-xs text-muted-foreground">成交量</div>
+                        <div className="font-semibold">
+                          {l1Candidate.volume ? `${(l1Candidate.volume as number / 1e6).toFixed(2)}M` : '-'}
+                        </div>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-xs text-muted-foreground">筛选策略</div>
+                        <div className="font-medium text-sm">{String(l1Candidate.strategy || l1Data?.strategy || '-')}</div>
+                      </div>
+                      {typeof l1Candidate.industry === 'string' && l1Candidate.industry && (
+                        <div className="space-y-1">
+                          <div className="text-xs text-muted-foreground">行业</div>
+                          <div className="font-medium text-sm">{l1Candidate.industry}</div>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="text-muted-foreground text-sm">暂无基本面数据</div>
+                  )}
+                </CardContent>
+              </Card>
+
+              {/* Price Chart */}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium flex items-center gap-2">
+                    <TrendingUp className="h-4 w-4" />
+                    价格走势 (近90交易日)
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <PriceChart data={priceHistory} height={180} />
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* ========== Tab: Technical ========== */}
+            <TabsContent value="technical">
+              <L2Card data={result} />
+            </TabsContent>
+
+            {/* ========== Tab: Score ========== */}
+            <TabsContent value="score" className="space-y-4">
+              {/* Five Dimensional Radar Chart */}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium flex items-center gap-2">
+                    <Award className="h-4 w-4" />
+                    五维雷达图
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {radarData.length > 0 ? (
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="h-[220px]">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <RadarChart data={radarData}>
+                            <PolarGrid stroke="#333" />
+                            <PolarAngleAxis
+                              dataKey="dimension"
+                              tick={{ fill: '#888', fontSize: 12 }}
+                            />
+                            <PolarRadiusAxis
+                              angle={90}
+                              domain={[0, 100]}
+                              tick={{ fill: '#666', fontSize: 10 }}
+                            />
+                            <Radar
+                              name="评分"
+                              dataKey="value"
+                              stroke="#22c55e"
+                              fill="#22c55e"
+                              fillOpacity={0.3}
+                              strokeWidth={2}
+                            />
+                          </RadarChart>
+                        </ResponsiveContainer>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="text-sm text-muted-foreground mb-2">各项得分</div>
+                        {radarData.map((d, i) => (
+                          <div key={d.dimension} className="space-y-1">
+                            <div className="flex items-center justify-between text-sm">
+                              <span className="text-muted-foreground">{d.dimension}</span>
+                              <span className="font-semibold" style={{ color: dimensionColors[i] }}>
+                                {d.value.toFixed(1)}
+                              </span>
+                            </div>
+                            <Progress 
+                              value={d.value} 
+                              max={100} 
+                              className="h-2"
+                            />
+                          </div>
+                        ))}
+                        <div className="pt-2 mt-3 border-t border-border flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">综合评分</span>
+                          <span className="text-lg font-bold text-primary">
+                            {weightedScore !== undefined ? weightedScore.toFixed(2) : '-'}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-muted-foreground text-sm text-center py-8">暂无五维评分数据</div>
+                  )}
+                </CardContent>
+              </Card>
+
+              {/* L3 Card for detailed scores */}
+              <L3Card data={result} score={mappedScore} />
+            </TabsContent>
+
+            {/* ========== Tab: Investment Plan ========== */}
+            <TabsContent value="plan" className="space-y-4">
+              {/* Decision Signal Card - Prominent */}
+              <Card className="border-2 border-primary/30 glow-primary">
+                <CardContent className="py-6">
+                  <div className="flex items-center justify-between flex-wrap gap-4">
+                    <div>
+                      <div className="text-sm text-muted-foreground mb-1">投资决策信号</div>
+                      <DecisionBadge decision={result.final_decision} size="lg" />
+                      <div className="mt-2 text-sm text-muted-foreground">
+                        {getActionSuggestion(result.final_decision || '')}
+                      </div>
+                    </div>
+                    
+                    {/* Key Plan Metrics */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      {l4ExpectedReturn !== undefined && (
+                        <div className="bg-buy/10 border border-buy/20 rounded-lg p-3 text-center">
+                          <div className="text-xs text-muted-foreground mb-1">期望收益</div>
+                          <div className="text-lg font-semibold text-buy">
+                            {formatPercent(l4ExpectedReturn)}
+                          </div>
+                        </div>
+                      )}
+                      {l4WorstLoss !== undefined && (
+                        <div className="bg-sell/10 border border-sell/20 rounded-lg p-3 text-center">
+                          <div className="text-xs text-muted-foreground mb-1">最坏亏损</div>
+                          <div className="text-lg font-semibold text-sell">
+                            {formatPercent(l4WorstLoss)}
+                          </div>
+                        </div>
+                      )}
+                      {l4SuccessRate !== undefined && (
+                        <div className="bg-primary/10 border border-primary/20 rounded-lg p-3 text-center">
+                          <div className="text-xs text-muted-foreground mb-1">成功概率</div>
+                          <div className="text-lg font-semibold text-primary">
+                            {(l4SuccessRate * 100).toFixed(0)}%
+                          </div>
+                        </div>
+                      )}
+                      {l4RecommendedPosition !== undefined && (
+                        <div className="bg-muted border border-border rounded-lg p-3 text-center">
+                          <div className="text-xs text-muted-foreground mb-1">建议仓位</div>
+                          <div className="text-lg font-semibold">
+                            {(l4RecommendedPosition * 100).toFixed(0)}%
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Stop Loss / Target Price */}
+              {(l4StopLoss !== undefined || l4TakeProfit !== undefined || l4TargetPrice !== undefined) && (
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium flex items-center gap-2">
+                      <Target className="h-4 w-4" />
+                      交易区间
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      {l4StopLoss !== undefined && (
+                        <div className="bg-sell/10 border border-sell/20 rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <TrendingDown className="h-4 w-4 text-sell" />
+                            <span className="text-sm text-muted-foreground">止损价</span>
+                          </div>
+                          <div className="text-2xl font-bold text-sell">${l4StopLoss.toFixed(2)}</div>
+                        </div>
+                      )}
+                      {l4TakeProfit !== undefined && (
+                        <div className="bg-buy/10 border border-buy/20 rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <TrendingUp className="h-4 w-4 text-buy" />
+                            <span className="text-sm text-muted-foreground">止盈价</span>
+                          </div>
+                          <div className="text-2xl font-bold text-buy">${l4TakeProfit.toFixed(2)}</div>
+                        </div>
+                      )}
+                      {l4TargetPrice !== undefined && (
+                        <div className="bg-muted border border-border rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Target className="h-4 w-4 text-muted-foreground" />
+                            <span className="text-sm text-muted-foreground">机构目标价</span>
+                          </div>
+                          <div className="text-2xl font-bold">${l4TargetPrice.toFixed(2)}</div>
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Probability Distribution Bar */}
+              {l4Probability !== undefined && (
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium flex items-center gap-2">
+                      <BarChart3 className="h-4 w-4" />
+                      概率化方案
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">上涨概率</span>
+                        <span className="font-semibold text-buy">{(l4Probability * 100).toFixed(1)}%</span>
+                      </div>
+                      <div className="h-4 rounded-full bg-sell/20 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-sell to-buy transition-all duration-500"
+                          style={{ width: `${l4Probability * 100}%` }}
+                        />
+                      </div>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>下跌{l4Probability < 0.5 ? '较大概率高' : ''}</span>
+                        <span>上涨{(l4Probability * 100).toFixed(0)}% | 下跌{((1 - l4Probability) * 100).toFixed(0)}%</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Core Conclusion & Reasons */}
+              {(l4CoreConclusion || l4BuyReasons?.length || l4RiskWarnings?.length) && (
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium">决策分析</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {l4CoreConclusion && (
+                      <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+                        <div className="text-xs text-muted-foreground mb-1">核心结论</div>
+                        <div className="text-sm font-medium">{l4CoreConclusion}</div>
+                      </div>
+                    )}
+                    {l4BuyReasons && l4BuyReasons.length > 0 && (
+                      <div>
+                        <div className="text-xs text-muted-foreground mb-2 flex items-center gap-1">
+                          <span className="text-buy">✓</span> 买入理由
+                        </div>
+                        <ul className="space-y-1.5">
+                          {l4BuyReasons.map((reason, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm">
+                              <span className="text-buy mt-0.5">•</span>
+                              <span>{reason}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {l4RiskWarnings && l4RiskWarnings.length > 0 && (
+                      <div>
+                        <div className="text-xs text-muted-foreground mb-2 flex items-center gap-1">
+                          <AlertTriangle className="h-3 w-3 text-sell" /> 风险提示
+                        </div>
+                        <ul className="space-y-1.5">
+                          {l4RiskWarnings.map((warning, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm">
+                              <span className="text-sell mt-0.5">•</span>
+                              <span>{warning}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Judge Decisions */}
+              {l4Decisions && l4Decisions.length > 0 && (
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium">各裁判意见</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      {l4Decisions.map((d, i) => (
+                        <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+                          <div className="flex-1">
+                            <div className="font-medium text-sm">
+                              {String(d.decision || d.type || 'N/A')}
+                            </div>
+                            {d.confidence !== undefined && (
+                              <div className="text-xs text-muted-foreground mt-1">
+                                置信度: {typeof d.confidence === 'number' ? `${(d.confidence * 100).toFixed(0)}%` : 'N/A'}
+                              </div>
+                            )}
+                          </div>
+                          <DecisionBadge decision={d.decision as 'BUY' | 'SELL' | 'WATCH' | 'NO' | undefined} size="sm" />
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            </TabsContent>
+          </Tabs>
+        </div>
+
+        {/* Right: Fixed Sidebar (1/3 width) */}
+        <div className="space-y-4">
+          {/* Quick Stats Card */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium">评分概览</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-muted-foreground">加权总分</span>
+                <span className="text-lg font-bold text-primary">
+                  {weightedScore !== undefined ? weightedScore.toFixed(1) : '-'}
+                </span>
+              </div>
+              <div className="h-1.5 rounded-full bg-muted overflow-hidden">
+                <div 
+                  className="h-full bg-gradient-to-r from-primary to-buy transition-all"
+                  style={{ width: `${weightedScore || 0}%` }}
+                />
+              </div>
+              <div className="grid grid-cols-5 gap-1 text-center pt-2">
+                {radarData.map((d, i) => (
+                  <div key={d.dimension} className="space-y-0.5">
+                    <div className="text-xs font-semibold" style={{ color: dimensionColors[i] }}>
+                      {d.value.toFixed(0)}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground truncate">{d.dimension}</div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Quick Actions Card */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium">快捷操作</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <Dialog open={watchlistOpen} onOpenChange={setWatchlistOpen}>
+                <DialogTrigger asChild>
+                  <Button variant="outline" className="w-full justify-start">
+                    <Eye className="mr-2 h-4 w-4" />
+                    加入关注
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>添加到关注列表</DialogTitle>
+                  </DialogHeader>
+                  <div className="py-4">
+                    <p className="text-sm text-muted-foreground mb-4">
+                      确定将 <strong>{result.stock_code}</strong> 添加到关注列表？
+                    </p>
+                    <div className="flex gap-3 justify-end">
+                      <Button variant="outline" onClick={() => setWatchlistOpen(false)}>取消</Button>
+                      <Button onClick={handleAddToWatchlist}>确认</Button>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+
+              <Dialog open={portfolioOpen} onOpenChange={setPortfolioOpen}>
+                <DialogTrigger asChild>
+                  <Button variant="outline" className="w-full justify-start">
+                    <PieChart className="mr-2 h-4 w-4" />
+                    加入持仓
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>添加到持仓</DialogTitle>
+                  </DialogHeader>
+                  <div className="py-4 space-y-4">
+                    <p className="text-sm text-muted-foreground">
+                      股票代码: <strong>{result.stock_code}</strong>
+                    </p>
+                    <div className="space-y-2">
+                      <Label htmlFor="quantity">持仓数量</Label>
+                      <Input
+                        id="quantity"
+                        type="number"
+                        value={quantity}
+                        onChange={(e) => setQuantity(Number(e.target.value))}
+                        min={1}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="cost">成本价</Label>
+                      <Input
+                        id="cost"
+                        type="number"
+                        value={cost}
+                        onChange={(e) => setCost(Number(e.target.value))}
+                        step={0.01}
+                        min={0}
+                      />
+                    </div>
+                    <div className="flex gap-3 justify-end">
+                      <Button variant="outline" onClick={() => setPortfolioOpen(false)}>取消</Button>
+                      <Button onClick={handleAddToPortfolio}>确认</Button>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+
+              <Button variant="outline" className="w-full justify-start" asChild>
+                <Link to={`/history/${result.stock_code}`}>
+                  <History className="mr-2 h-4 w-4" />
+                  查看历史
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* L4 Quick Summary */}
+          <Card className="border-buy/20">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium">L4 投资方案</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center justify-center py-2">
+                <DecisionBadge decision={result.final_decision} size="lg" />
+              </div>
+              {l4Probability !== undefined && (
+                <div className="space-y-1">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">上涨概率</span>
+                    <span className="font-medium text-buy">{(l4Probability * 100).toFixed(0)}%</span>
+                  </div>
+                  <Progress value={l4Probability * 100} max={100} className="h-2" />
+                </div>
+              )}
+              <div className="grid grid-cols-2 gap-2 text-center">
+                {l4StopLoss !== undefined && (
+                  <div className="bg-sell/10 rounded p-2">
+                    <div className="text-[10px] text-muted-foreground">止损</div>
+                    <div className="text-sm font-semibold text-sell">${l4StopLoss.toFixed(1)}</div>
+                  </div>
+                )}
+                {l4TakeProfit !== undefined && (
+                  <div className="bg-buy/10 rounded p-2">
+                    <div className="text-[10px] text-muted-foreground">止盈</div>
+                    <div className="text-sm font-semibold text-buy">${l4TakeProfit.toFixed(1)}</div>
+                  </div>
+                )}
+              </div>
+              {l4RecommendedPosition !== undefined && (
+                <div className="text-center text-xs text-muted-foreground">
+                  建议仓位: <span className="font-semibold text-primary">{(l4RecommendedPosition * 100).toFixed(0)}%</span>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}

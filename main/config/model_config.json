@@ -1,0 +1,13 @@
+{
+  "_comment": "LLM模型统一配置 v1（2026-05-30）",
+  "_description": "所有外部LLM调用的API Key和模型参数集中管理，切换模型时只需修改此文件",
+  "provider": "minimax",
+  "minimax": {
+    "api_key": "${MINIMAX_CN_API_KEY}",
+    "model": "MiniMax-M2.7",
+    "endpoint": "https://api.minimaxi.com/anthropic/v1/messages",
+    "temperature": 0.3,
+    "max_tokens": 4096,
+    "timeout": 120
+  }
+}

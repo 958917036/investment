@@ -1,0 +1,51 @@
+{
+  "_comment": "L3/L4 评分系统全局配置 v1（2026-04-29）",
+  "_description": "所有评分相关的硬编码数值均在此配置，代码引用此文件而非直接写死",
+  "five_dimension_weights": {
+    "moneyflow": 0.35,
+    "technical": 0.35,
+    "fundamental": 0.1,
+    "sector": 0.1,
+    "event": 0.1
+  },
+  "l3_gate": {
+    "_comment": "五维度评分gate：低于阈值时跳过辩论和人格",
+    "five_score_threshold": 55
+  },
+  "debate": {
+    "max_rounds": 1,
+    "confidence_default": 0.5
+  },
+  "persona": {
+    "agents_total_default": 12
+  },
+  "l4_judge": {
+    "weights": {
+      "veto_weight": 0.5,
+      "debate_weight": 0.25,
+      "persona_weight": 0.25
+    },
+    "decision_thresholds": {
+      "accept_min": 0.55,
+      "watch_min": 0.35
+    },
+    "verdict_map": {
+      "看多": 1.0,
+      "谨慎看多": 0.6,
+      "中性观望": 0.3,
+      "谨慎看空": 0.1,
+      "看空": 0.0
+    }
+  },
+  "risk": {
+    "stop_loss_pct": -0.08,
+    "take_profit_pct": 0.2,
+    "kelly_threshold": 60
+  },
+  "defaults": {
+    "price_fallback": 50.0,
+    "five_score_fallback": 50,
+    "grade_fallback": "C",
+    "verdict_fallback": "中性观望"
+  }
+}

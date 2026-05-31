@@ -1,0 +1,18 @@
+{
+  "_comment": "L4裁判权重配置 v2（2026-04-29更新）",
+  "_description": "新公式：judge_score = 五维度评分×0.50 + 辩论分×0.25 + 人格分×0.25",
+  "veto_weight": 0.50,
+  "debate_weight": 0.25,
+  "persona_weight": 0.25,
+  "decision_thresholds": {
+    "accept_min": 0.55,
+    "watch_min": 0.35
+  },
+  "verdict_map": {
+    "看多": 1.0,
+    "谨慎看多": 0.6,
+    "中性观望": 0.3,
+    "谨慎看空": 0.1,
+    "看空": 0.0
+  }
+}

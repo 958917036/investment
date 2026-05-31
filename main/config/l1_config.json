@@ -1,0 +1,58 @@
+{
+  "_comment": "L1选股层统一配置 v2（2026-05-30）",
+  "_description": "L1所有硬编码参数迁移至此配置文件",
+  "test_limit": 3,
+  "cn": {
+    "batch_size": 50,
+    "top_n": 2000,
+    "request_interval": 0.3,
+    "request_timeout": 15,
+    "per_strategy_limit": 2000,
+    "max_stocks_total": 2000
+  },
+  "hk": {
+    "batch_size": 10,
+    "top_n": 1000,
+    "min_turnover_hkd": 10000000
+  },
+  "us": {
+    "batch_size": 10,
+    "top_n": 500,
+    "min_price": 5,
+    "min_volume": 10000000
+  },
+  "filters": {
+    "min_market_cap_yuan": 30000000000,
+    "max_pe": 50,
+    "max_pb": 10,
+    "min_roe": 8,
+    "min_volume": 10000000
+  },
+  "signals": {
+    "buffett": {
+      "thresholds": [0.40, 0.50, 0.65],
+      "description": "Buffett质量价值策略阈值：signal>=0.65强，>=0.50中，>=0.40弱"
+    },
+    "lynch": {
+      "thresholds": [0.40, 0.50, 0.65],
+      "description": "Lynch GARP策略阈值：PE合理(0.25)+PB合理(0.20)+中盘(0.25)组合才能过0.40"
+    },
+    "graham": {
+      "thresholds": [0.40, 0.50, 0.65],
+      "description": "Graham成长动量策略阈值：PE<=30(0.30)+振幅(0.15)+市值(0.20)组合才能过0.40"
+    },
+    "momentum": {
+      "thresholds": [0.40, 0.50, 0.65],
+      "description": "动量突破策略阈值：涨幅>3%(0.35)+高成交量(0.20)组合才能过0.40"
+    },
+    "reversion": {
+      "thresholds": [0.40, 0.50, 0.65],
+      "description": "均值回归回撤策略阈值：需要多个条件组合才能过0.40"
+    }
+  },
+  "prefilter": {
+    "min_market_cap_yuan": 10000000000,
+    "max_pe": 100,
+    "min_price": 3
+  }
+}

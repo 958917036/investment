@@ -1,0 +1,173 @@
+[TEST] test_l1_runner ▶ START  tests=11
+[TEST] test_l1_runner::by_code(600519→贵州茅台) ▶ START
+[2026-05-31 18:18:25.423] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
+[TEST] test_l1_runner::by_code(600519→贵州茅台) ▶ END  elapsed=0.1s  status=PASS
+[TEST] test_l1_runner::by_name(茅台) ▶ START
+[2026-05-31 18:18:37.951] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时30.5s
+[2026-05-31 18:18:37.952] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 18:18:41.150] [INFO] [by_name] [source=akshare] A股名称模糊搜索成功 - 5525 条
+[2026-05-31 18:18:41.273] [INFO] [by_name] [source=tencent] 批量获取行情成功 - 1 只
+[TEST] test_l1_runner::by_name(茅台) ▶ END  elapsed=15.9s  status=PASS
+[TEST] test_l1_runner::by_name(empty) ▶ START
+[TEST] test_l1_runner::by_name(empty) ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l1_runner::by_sector(白酒) ▶ START
+[TEST] test_l1_runner::by_sector(白酒) ▶ END  elapsed=5.2s  status=PASS
+[TEST] test_l1_runner::by_sector(not_found) ▶ START
+[2026-05-31 18:18:52.421] [ERROR] [by_sector] [source=akshare] A股板块查询失败 - ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[TEST] test_l1_runner::by_sector(not_found) ▶ END  elapsed=6.0s  status=PASS
+[TEST] test_l1_runner::by_strategy(breakout) ▶ START
+[2026-05-31 18:18:57.324] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时19.4s
+[2026-05-31 18:18:57.324] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 18:18:57.333] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
+[TEST] test_l1_runner::by_strategy(breakout) ▶ END  elapsed=13.1s  status=PASS
+[TEST] test_l1_runner::by_strategy(growth_momentum) ▶ START
+[2026-05-31 18:19:06.113] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-05-31 18:19:06.973] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
+[2026-05-31 18:19:06.974] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 18:19:06.974] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[TEST] test_l1_runner::by_strategy(growth_momentum) ▶ END  elapsed=8.6s  status=PASS
+[TEST] test_l1_runner::by_strategy(garp) ▶ START
+[TEST] test_l1_runner::by_strategy(garp) ▶ END  elapsed=8.7s  status=PASS
+[TEST] test_l1_runner::by_strategy(pullback) ▶ START
+[2026-05-31 18:19:31.087] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时24.1s
+[2026-05-31 18:19:31.088] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[TEST] test_l1_runner::by_strategy(pullback) ▶ END  elapsed=8.6s  status=PASS
+[TEST] test_l1_runner::by_strategy(quality_value) ▶ START
+[2026-05-31 18:19:39.297] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时8.2s
+[2026-05-31 18:19:39.297] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 18:19:39.305] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[TEST] test_l1_runner::by_strategy(quality_value) ▶ END  elapsed=8.7s  status=PASS
+[TEST] test_l1_runner::unknown_mode ▶ START
+[TEST] test_l1_runner::unknown_mode ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l1_runner ▶ END  passed=11 failed=0 elapsed=74.7s  status=PASS
+[TEST] test_l2_runner ▶ START  tests=9
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ START
+[2026-05-31 18:19:41.275] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 18:19:44.094] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-05-31 18:19:44.769] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
+[2026-05-31 18:19:44.770] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 18:19:44.770] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 18:20:01.597] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 18:20:08.130] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 18:20:09.355] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 18:20:09.564] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 18:20:09.653] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::CN(600519贵州茅台) ▶ END  elapsed=29.3s  status=PASS
+[TEST] test_l2_runner::HK(00700腾讯) ▶ START
+[2026-05-31 18:20:09.655] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时24.9s
+[2026-05-31 18:20:09.656] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[TEST] test_l2_runner::HK(00700腾讯) ▶ END  elapsed=3.7s  status=PASS
+[TEST] test_l2_runner::US(SMCI超微) ▶ START
+[2026-05-31 18:20:18.305] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时8.6s
+[2026-05-31 18:20:18.305] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 18:20:18.312] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 18:20:18.315] [INFO] [l1_runner] 开始L1选股 market=HK
+[2026-05-31 18:20:18.406] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=hk09999
+[2026-05-31 18:20:18.406] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 18:20:18.406] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 18:20:21.898] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时3.5s
+[2026-05-31 18:20:21.898] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[TEST] test_l2_runner::US(SMCI超微) ▶ END  elapsed=16.2s  status=PASS
+[TEST] test_l2_runner::quality_markers ▶ START
+[2026-05-31 18:20:29.832] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 18:20:36.190] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时14.3s
+[2026-05-31 18:20:36.191] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 18:20:36.192] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 18:20:36.196] [INFO] [l1_runner] 开始L1选股 market=US
+[2026-05-31 18:20:36.288] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=usTSM
+[2026-05-31 18:20:36.289] [INFO] [l1_runner] L1选股完成: 1 只候选股票
+[2026-05-31 18:20:36.289] [INFO] [l2_runner] 开始L2数据充实: 1 只股票
+[2026-05-31 18:20:47.206] [INFO] [l2_runner] L2数据充实完成: 1 只股票，耗时10.9s
+[2026-05-31 18:20:47.207] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 18:20:50.657] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 18:20:53.841] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 18:20:54.619] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 18:20:54.816] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 18:20:54.943] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::quality_markers ▶ END  elapsed=25.4s  status=PASS
+[TEST] test_l2_runner::missing_fields ▶ START
+[2026-05-31 18:20:56.566] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 18:20:56.945] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时9.7s
+[2026-05-31 18:20:56.945] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 18:20:56.945] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 18:20:56.947] [INFO] [l1_runner] 开始L1选股 market=CN
+[2026-05-31 18:20:57.053] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sh600519
+[2026-05-31 18:20:57.193] [INFO] [by_code] [source=tencent] 精确查询行情成功 - code=sz000858
+[2026-05-31 18:20:57.193] [INFO] [l1_runner] L1选股完成: 2 只候选股票
+[2026-05-31 18:20:57.194] [INFO] [l2_runner] 开始L2数据充实: 2 只股票
+[2026-05-31 18:21:15.204] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 18:21:15.971] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 18:21:16.872] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 18:21:17.087] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 18:21:17.170] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::missing_fields ▶ END  elapsed=22.2s  status=PASS
+[TEST] test_l2_runner::invalid_market ▶ START
+[TEST] test_l2_runner::invalid_market ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l2_runner::run_date_field ▶ START
+[2026-05-31 18:21:17.487] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 18:21:28.327] [INFO] [l2_runner] L2数据充实完成: 2 只股票，耗时31.1s
+[2026-05-31 18:21:28.328] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 18:21:32.069] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 18:21:32.651] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 18:21:33.447] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 18:21:33.611] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 18:21:33.672] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::run_date_field ▶ END  elapsed=16.5s  status=PASS
+[TEST] test_l2_runner::fund_flow_fallback ▶ START
+[2026-05-31 18:21:33.989] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 18:21:34.989] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时6.7s
+[2026-05-31 18:21:34.989] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 18:21:34.989] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=1，耗时0.0s
+[2026-05-31 18:21:34.990] [INFO] [l3_runner] 开始L3量化分析: 1 只股票
+[2026-05-31 18:21:46.305] [INFO] [l3_runner] L3量化分析完成: 1 只股票，耗时11.3s
+[2026-05-31 18:21:46.306] [INFO] [l4_runner] 开始L4风险裁决: 1 只股票
+[2026-05-31 18:21:46.307] [INFO] [l4_runner] L4风险裁决完成: 1 只，BUY=0，耗时0.0s
+[2026-05-31 18:21:49.988] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 18:21:50.983] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 18:21:51.853] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 18:21:52.038] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 18:21:52.124] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::fund_flow_fallback ▶ END  elapsed=18.5s  status=PASS
+[TEST] test_l2_runner::sector_all_fail ▶ START
+[2026-05-31 18:21:52.793] [source=tencent] fetch_qq_realtime ✅ - code=600519, price=1326.0
+[2026-05-31 18:22:07.439] [source=akshare] fetch_fund_flow ✅ - code=600519, has_main_net_flow_5d=False
+[2026-05-31 18:22:10.083] [source=baostock] fetch_technical ✅ - code=600519, ma_status=neutral
+[2026-05-31 18:22:11.126] [source=akshare] fetch_fundamentals ✅ - code=600519, roe=10.06
+[2026-05-31 18:22:11.289] [source=akshare] fetch_sector_data ✅ - code=600519, sector_count=40
+[2026-05-31 18:22:11.372] [source=akshare] fetch_event_data ✅ - code=600519, news_count=10
+[TEST] test_l2_runner::sector_all_fail ▶ END  elapsed=19.2s  status=PASS
+[TEST] test_l2_runner ▶ END  passed=9 failed=0 elapsed=151.0s  status=PASS
+[TEST] test_l3_quant_runner ▶ START  tests=11
+[TEST] test_l3_quant_runner::normal_l2 ▶ START
+[TEST] test_l3_quant_runner::normal_l2 ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::failed_dimensions_tracking ▶ START
+[TEST] test_l3_quant_runner::failed_dimensions_tracking ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::score_structure ▶ START
+[TEST] test_l3_quant_runner::score_structure ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::debate_structure ▶ START
+[TEST] test_l3_quant_runner::debate_structure ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::degrade_quality_propagation ▶ START
+[TEST] test_l3_quant_runner::degrade_quality_propagation ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::empty_l2_data ▶ START
+[TEST] test_l3_quant_runner::empty_l2_data ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::missing_fields_detection ▶ START
+[TEST] test_l3_quant_runner::missing_fields_detection ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::partial_dimension_missing ▶ START
+[TEST] test_l3_quant_runner::partial_dimension_missing ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::zero_field_values ▶ START
+[TEST] test_l3_quant_runner::zero_field_values ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::extreme_low_score ▶ START
+[TEST] test_l3_quant_runner::extreme_low_score ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner::field_type_error ▶ START
+[TEST] test_l3_quant_runner::field_type_error ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l3_quant_runner ▶ END  passed=11 failed=0 elapsed=0.0s  status=PASS
+[TEST] test_l4_runner ▶ START  tests=4
+[TEST] test_l4_runner::run_risk_judgment ▶ START
+[TEST] test_l4_runner::run_risk_judgment ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l4_runner::judge_components ▶ START
+[TEST] test_l4_runner::judge_components ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l4_runner::quality_degraded_lowers_score ▶ START
+[TEST] test_l4_runner::quality_degraded_lowers_score ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l4_runner::decision_thresholds ▶ START
+[TEST] test_l4_runner::decision_thresholds ▶ END  elapsed=0.0s  status=PASS
+[TEST] test_l4_runner ▶ END  passed=4 failed=0 elapsed=0.0s  status=PASS
