@@ -508,8 +508,18 @@ def _run_by_code(params: dict) -> list:
     按代码精确查询
 
     params: {"code": "600519", "market": "cn"}
+            或 {"codes": ["600519", "000858"], "market": "cn"}
     """
-    code = params.get("code", "")
+    codes = params.get("codes", [])
+    if isinstance(codes, list) and len(codes) > 1:
+        #批量查询（支持 --symbols 多只）
+        all_stocks = []
+        for code in codes:
+            result = by_code.query_by_code(code, market=params.get("market", "cn"))
+            all_stocks.extend(result)
+        return all_stocks
+
+    code = params.get("code", "") or (codes[0] if codes else "")
     market = params.get("market", "cn")
     if not code:
         return []

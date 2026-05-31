@@ -337,10 +337,16 @@ def main():
                         choices=["full", "L1", "L2", "L3", "L4", "L5", "quick"],
                         help="运行模式 (默认full全链路)")
     parser.add_argument("--symbols", nargs="*", default=None,
-                        help="指定股票代码")
+                        help="指定股票代码（用于 by_code / by_name / by_sector / by_strategy）")
     parser.add_argument("--market", default="CN",
                         choices=["CN", "HK", "US"],
                         help="市场: CN=A股(默认), HK=港股, US=美股")
+    parser.add_argument("--query", default=None,
+                        choices=["by_code", "by_name", "by_sector", "by_strategy"],
+                        help="L1 查询模式：by_code=按代码, by_name=按名称, by_sector=按板块, by_strategy=按策略")
+    parser.add_argument("--strategy", default=None,
+                        choices=["breakout", "growth_momentum", "garp", "pullback", "quality_value"],
+                        help="选股策略（by_strategy 模式），默认 all")
     args = parser.parse_args()
 
     logger.info(f"🌾 神农系统启动 — {TODAY}")
@@ -353,6 +359,19 @@ def main():
         mode=args.mode,
     )
     ctx = load_all_config(ctx)
+
+    # 将 CLI 参数注入 L1 config（支持 by_code / by_name / by_sector / by_strategy）
+    #优先级：--strategy > --query > --symbols（默认by_code）
+    if args.strategy:
+        # --strategy 是最高优先级，强制 by_strategy 模式
+        ctx.l1_config["_force_mode"] = "by_strategy"
+        ctx.l1_config["_force_symbols"] = [args.strategy]
+    elif args.query:
+        ctx.l1_config["_force_mode"] = args.query
+        ctx.l1_config["_force_symbols"] = args.symbols or []
+    elif args.symbols:
+        ctx.l1_config["_force_mode"] = "by_code"
+        ctx.l1_config["_force_symbols"] = args.symbols
 
     result = run_pipeline(ctx)
 

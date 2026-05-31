@@ -40,6 +40,31 @@ def run_l1(ctx: PipelineContext) -> PipelineContext:
         if test_limit is not None:
             params["test_limit"] = test_limit
 
+        # _force_mode 支持直接指定查询模式（--symbols 入口）
+        # by_code:   code列表 → 按代码精确查
+        # by_name:   name 关键字 → 按名称模糊查
+        # by_sector: sector 关键字 → 按板块查
+        # by_strategy: strategy名称 → 按策略查（breakout/growth_momentum/garp/pullback/quality_value）
+        force_mode = ctx.l1_config.get("_force_mode")
+        if force_mode:
+            input_type = force_mode
+            symbols = ctx.l1_config.get("_force_symbols", [])
+            if force_mode == "by_code":
+                params = {"codes": symbols, "market": ctx.market.value.lower()}
+            elif force_mode == "by_name":
+                params = {"name": symbols[0] if symbols else "", "market": ctx.market.value.lower()}
+            elif force_mode == "by_sector":
+                params = {"sector": symbols[0] if symbols else "", "market": ctx.market.value.lower()}
+            elif force_mode == "by_strategy":
+                params = {"strategy": symbols[0] if symbols else "all",
+                          "pool": ctx.l1_config.get("pool", "index800"),
+                          "market": ctx.market.value.lower()}
+                if test_limit is not None:
+                    params["test_limit"] = test_limit
+            # 清空 force 参数，避免影响后续层
+            ctx.l1_config.pop("_force_mode", None)
+            ctx.l1_config.pop("_force_symbols", None)
+
         # 调用底层 runner（传入 context 中的 config）
         from L1_screener.l1_runner import run_l1 as _run_l1
 

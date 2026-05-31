@@ -1,28 +1,154 @@
 {
-  "timestamp": "2026-05-31T21:15:37.886120",
+  "timestamp": "2026-05-31T22:44:01.142840",
   "layers": [
+    {
+      "layer": "L1",
+      "files": 1,
+      "results": [
+        {
+          "file": "test_l1_runner.py",
+          "passed": 11,
+          "failed": 0,
+          "elapsed": 70.3,
+          "result_line": "11 通过, 0 失败",
+          "success": true,
+          "output": "9%|█▉        | 3/16 [00:00<00:03,  4.31it/s]\n 25%|██▌       | 4/16 [00:00<00:02,  4.30it/s]\n 31%|███▏      | 5/16 [00:01<00:02,  4.58it/s]\n 38%|███▊      | 6/16 [00:01<00:02,  4.47it/s]\n 44%|████▍     | 7/16 [00:01<00:02,  3.90it/s]\n 50%|█████     | 8/16 [00:02<00:02,  3.68it/s]\n 56%|█████▋    | 9/16 [00:02<00:01,  4.06it/s]\n 62%|██████▎   | 10/16 [00:02<00:01,  4.37it/s]\n 69%|██████▉   | 11/16 [00:02<00:01,  4.46it/s]\n 75%|███████▌  | 12/16 [00:02<00:00,  4.42it/s]\n 81%|████████▏ | 13/16 [00:03<00:00,  4.38it/s]\n 88%|████████▊ | 14/16 [00:03<00:00,  4.43it/s]\n 94%|█████████▍| 15/16 [00:03<00:00,  4.37it/s]\n100%|██████████| 16/16 [00:03<00:00,  4.63it/s]\n                                               \n[TEST] test_l1_runner::by_name(茅台) ▶ END  elapsed=12.6s  status=PASS\n[TEST] test_l1_runner::by_name(empty) ▶ START\n[TEST] test_l1_runner::by_name(empty) ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l1_runner::by_sector(白酒) ▶ START\n[TEST] test_l1_runner::by_sector(白酒) ▶ END  elapsed=6.7s  status=PASS\n[TEST] test_l1_runner::by_sector(not_found) ▶ START\n[TEST] test_l1_runner::by_sector(not_found) ▶ END  elapsed=6.0s  status=PASS\n[TEST] test_l1_runner::by_strategy(breakout) ▶ START\n[TEST] test_l1_runner::by_strategy(breakout) ▶ END  elapsed=9.7s  status=PASS\n[TEST] test_l1_runner::by_strategy(growth_momentum) ▶ START\n[TEST] test_l1_runner::by_strategy(growth_momentum) ▶ END  elapsed=8.7s  status=PASS\n[TEST] test_l1_runner::by_strategy(garp) ▶ START\n[TEST] test_l1_runner::by_strategy(garp) ▶ END  elapsed=9.0s  status=PASS\n[TEST] test_l1_runner::by_strategy(pullback) ▶ START\n[TEST] test_l1_runner::by_strategy(pullback) ▶ END  elapsed=8.8s  status=PASS\n[TEST] test_l1_runner::by_strategy(quality_value) ▶ START\n[TEST] test_l1_runner::by_strategy(quality_value) ▶ END  elapsed=8.7s  status=PASS\n[TEST] test_l1_runner::unknown_mode ▶ START\n[TEST] test_l1_runner::unknown_mode ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l1_runner ▶ END  passed=11 failed=0 elapsed=70.3s  status=PASS\n"
+        }
+      ],
+      "total_passed": 11,
+      "total_failed": 0,
+      "total_elapsed": 70.3
+    },
     {
       "layer": "L2",
       "files": 1,
       "results": [
         {
           "file": "test_l2_runner.py",
-          "passed": 0,
+          "passed": 9,
           "failed": 0,
-          "elapsed": 151.33363819122314,
-          "result_line": "",
+          "elapsed": 122.3,
+          "result_line": "9 通过, 0 失败",
           "success": true,
-          "output": " technical_data.missing_fields is list: 实际=list\n  ✅ fundamental_data.missing_fields is list: 实际=list\n  ✅ sector_data.missing_fields is list: 实际=list\n  ✅ event_data.missing_fields is list: 实际=list\n[失败字段] 无\n[结果] PASS\n\n[用例] invalid_market(无效市场抛出ValueError)\n[输入] code=600519, market=XX\n[耗时] 0.00s\n[实际异常] Unsupported market: XX. Must be CN | HK | US\n  ✅ 抛出 ValueError: 实际=Unsupported market: XX. Must be CN | HK | US\n[失败字段] 无\n[结果] PASS\n\n[用例] run_date_field(运行日期格式)\n[输入] code=600519, market=CN\n[耗时] 18.70s\n[run_date] 2026-05-31\n  ✅ run_date 存在: 实际=2026-05-31\n  ✅ run_date 是 str: 实际=str\n  ✅ run_date 长度10: 实际=10\n  ✅ run_date YYYY-MM-DD格式: 实际=2026-05-31\n[失败字段] 无\n[结果] PASS\n\n[用例] fund_flow_fallback(资金流API失败→BaoStock估算)\n[输入] code=600519, market=CN\n[耗时] 27.96s\n[_source] BaoStock日线估算(2026-05-31)\n[main_net_flow_5d] 440696840.72085994\n  ✅ moneyflow_data 存在: 实际={'main_net_flow_5d': 440696840.72085994, 'large_order_ratio': 0.011486652518129187, 'main_direction': '流入', 'retail_direction': '流出', 'daily_flows': [-20029465.22741548, -57077353.57148058, 246410478.04474223, -122331991.69282994, 393725173.1678437], 'latest_main_flow': 393725173.1678437, 'latest_main_ratio': 0.039225858847471436, 'super_large_flow': 0.0, 'small_order_flow': -393725173.1678437, '_source': 'BaoStock日线估算(2026-05-31)', 'qq_outer_inner_ratio': 1.32, 'outer_inner_ratio': 1.32, 'qq_outer_disk': 43467, 'qq_inner_disk': 33011, 'net_flow_1d_yuan': 1386465600}\n  ✅ main_net_flow_5d 有值: 实际=440696840.72085994\n  ✅ _source 标注来源: 实际=BaoStock日线估算(2026-05-31)\n[失败字段] 无\n[结果] PASS\n\n[用例] sector_all_fail(板块数据全失败降级)\n[输入] code=600519, market=CN\n[耗时] 18.28s\n[sector_count] None\n[sector_rank] 97\n[quality] ok\n[_source] \n  ✅ sector_data 存在: 实际={'source': 'datacenter-web RPT_INDUSTRY_LIST(2026-05-31)', 'quality': 'ok', 'missing_fields': [], 'sector_rank': 97, 'sector_fund_flow': 0, 'sector_strength': 'unknown', 'related_sector': '保险Ⅱ'}\n  ❌ sector_rank 有默认值: 实际=97\n  ✅ missing_fields 是 list: 实际=list\n  ❌ 板块全失败 quality=fail: 实际=ok\n[失败字段] 无\n[结果] PASS\n"
+          "output": "ter_inner_ratio': 1.32, 'qq_outer_disk': 43467, 'qq_inner_disk': 33011, 'net_flow_1d_yuan': 1386465600}\n  ✅ main_net_flow_5d 有值: 实际=440696840.72085994\n  ✅ _source 标注来源: 实际=BaoStock日线估算(2026-05-31)\n[失败字段] 无\n[结果] PASS\n\n[用例] sector_all_fail(板块数据全失败降级)\n[输入] code=600519, market=CN\n[TEST] test_l2_runner::sector_all_fail ▶ END  elapsed=17.1s  status=PASS\n[TEST] test_l2_runner ▶ END  passed=9 failed=0 elapsed=122.3s  status=PASS\n[耗时] 17.13s\n[sector_count] None\n[sector_rank] 97\n[quality] ok\n[_source] \n  ✅ sector_data 存在: 实际={'source': 'datacenter-web RPT_INDUSTRY_LIST(2026-05-31)', 'quality': 'ok', 'missing_fields': [], 'sector_rank': 97, 'sector_fund_flow': 0, 'sector_strength': 'unknown', 'related_sector': '保险Ⅱ'}\n  ❌ sector_rank 有默认值: 实际=97\n  ✅ missing_fields 是 list: 实际=list\n  ❌ 板块全失败 quality=fail: 实际=ok\n[失败字段] 无\n[结果] PASS\n[TEST] test_l2_runner ▶ START  tests=9\n[TEST] test_l2_runner::CN(600519贵州茅台) ▶ START\n[TEST] test_l2_runner::CN(600519贵州茅台) ▶ END  elapsed=22.5s  status=PASS\n[TEST] test_l2_runner::HK(00700腾讯) ▶ START\n[TEST] test_l2_runner::HK(00700腾讯) ▶ END  elapsed=3.3s  status=PASS\n[TEST] test_l2_runner::US(SMCI超微) ▶ START\n[TEST] test_l2_runner::US(SMCI超微) ▶ END  elapsed=11.3s  status=PASS\n[TEST] test_l2_runner::quality_markers ▶ START\n[TEST] test_l2_runner::quality_markers ▶ END  elapsed=16.5s  status=PASS\n[TEST] test_l2_runner::missing_fields ▶ START\n[TEST] test_l2_runner::missing_fields ▶ END  elapsed=18.3s  status=PASS\n[TEST] test_l2_runner::invalid_market ▶ START\n[TEST] test_l2_runner::invalid_market ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l2_runner::run_date_field ▶ START\n[TEST] test_l2_runner::run_date_field ▶ END  elapsed=16.5s  status=PASS\n[TEST] test_l2_runner::fund_flow_fallback ▶ START\n[TEST] test_l2_runner::fund_flow_fallback ▶ END  elapsed=16.8s  status=PASS\n[TEST] test_l2_runner::sector_all_fail ▶ START\n[TEST] test_l2_runner::sector_all_fail ▶ END  elapsed=17.1s  status=PASS\n[TEST] test_l2_runner ▶ END  passed=9 failed=0 elapsed=122.3s  status=PASS\n"
         }
       ],
-      "total_passed": 0,
+      "total_passed": 9,
       "total_failed": 0,
-      "total_elapsed": 151.33363819122314
+      "total_elapsed": 122.3
+    },
+    {
+      "layer": "L3",
+      "files": 4,
+      "results": [
+        {
+          "file": "test_l3_quant_runner.py",
+          "passed": 11,
+          "failed": 0,
+          "elapsed": 0.0,
+          "result_line": "11 通过, 0 失败",
+          "success": true,
+          "output": "中标大单', '分析师评级：buy，机构看多'], 'debate_duration_ms': 0.1}}, 'quality_overall': 'ok', 'failed_dimensions': [], 'duration_ms': 0.3}\n  [逻辑] technical_score = 100\n  [通过] five_score=70.04, technical_score=100, quality=ok\n\n============================================================\n结果: 11/11 通过, 0 失败\n============================================================\n[TEST] test_l3_quant_runner ▶ START  tests=11\n[TEST] test_l3_quant_runner::normal_l2 ▶ START\n[TEST] test_l3_quant_runner::normal_l2 ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::failed_dimensions_tracking ▶ START\n[TEST] test_l3_quant_runner::failed_dimensions_tracking ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::score_structure ▶ START\n[TEST] test_l3_quant_runner::score_structure ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::debate_structure ▶ START\n[TEST] test_l3_quant_runner::debate_structure ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::degrade_quality_propagation ▶ START\n[TEST] test_l3_quant_runner::degrade_quality_propagation ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::empty_l2_data ▶ START\n[TEST] test_l3_quant_runner::empty_l2_data ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::missing_fields_detection ▶ START\n[TEST] test_l3_quant_runner::missing_fields_detection ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::partial_dimension_missing ▶ START\n[TEST] test_l3_quant_runner::partial_dimension_missing ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::zero_field_values ▶ START\n[TEST] test_l3_quant_runner::zero_field_values ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::extreme_low_score ▶ START\n[TEST] test_l3_quant_runner::extreme_low_score ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner::field_type_error ▶ START\n[TEST] test_l3_quant_runner::field_type_error ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l3_quant_runner ▶ END  passed=11 failed=0 elapsed=0.0s  status=PASS\n"
+        },
+        {
+          "file": "test_l3_score_calculation.py",
+          "passed": 0,
+          "failed": 0,
+          "elapsed": 1.4157910346984863,
+          "result_line": "",
+          "success": true,
+          "output": "est_inst_ownership为None应得5分不是10分 PASSED [ 38%]\ntestsv2/l3/test_l3_score_calculation.py::TestFundamentalNullData::test_debt_eq为None应得2分不是5分 PASSED [ 44%]\ntestsv2/l3/test_l3_score_calculation.py::TestEventFiltering::test_全市场统计事件被过滤 PASSED [ 50%]\ntestsv2/l3/test_l3_score_calculation.py::TestEventFiltering::test_全是全市场事件应得5分 PASSED [ 55%]\ntestsv2/l3/test_l3_score_calculation.py::TestEventFiltering::test_纯文本事件保留 PASSED [ 61%]\ntestsv2/l3/test_l3_score_calculation.py::TestSectorDataMissing::test_sector_count为None应触发数据缺失 PASSED [ 66%]\ntestsv2/l3/test_l3_score_calculation.py::TestSectorDataMissing::test_sector_count为0应触发数据缺失 PASSED [ 72%]\ntestsv2/l3/test_l3_score_calculation.py::TestSectorDataMissing::test_sector_strength存在应正常评分 PASSED [ 77%]\ntestsv2/l3/test_l3_score_calculation.py::TestW4PersonaDenominator::test_W4分母包含reject_count FAILED [ 83%]\ntestsv2/l3/test_l3_score_calculation.py::TestBoundaryConditions::test_所有维度全为None PASSED [ 88%]\ntestsv2/l3/test_l3_score_calculation.py::TestBoundaryConditions::test_moneyflow数据全空 PASSED [ 94%]\ntestsv2/l3/test_l3_score_calculation.py::TestBoundaryConditions::test_technical中性偏弱满分边界 PASSED [100%]\n\n=================================== FAILURES ===================================\n_______________ TestW4PersonaDenominator.test_W4分母包含reject_count _______________\ntestsv2/l3/test_l3_score_calculation.py:338: in test_W4分母包含reject_count\n    result = run_risk_judgment(L3_quant, L3_persona, L2_data)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nL4_judge/l4_runner.py:316: in run_risk_judgment\n    raise ValueError(\"run_risk_judgment() 必须传入 l4_config 参数（从 PipelineContext.l4_risk_config 获取）\")\nE   ValueError: run_risk_judgment() 必须传入 l4_config 参数（从 PipelineContext.l4_risk_config 获取）\n=========================== short test summary info ============================\nFAILED testsv2/l3/test_l3_score_calculation.py::TestW4PersonaDenominator::test_W4分母包含reject_count\n========================= 1 failed, 17 passed in 0.67s =========================\n"
+        },
+        {
+          "file": "test_l3_veto_logic.py",
+          "passed": 8,
+          "failed": 0,
+          "elapsed": 0.05181694030761719,
+          "result_line": "结果: 8/8 通过, 0 失败",
+          "success": true,
+          "output": "\n▶ veto资金面净流出超限\n  [PASS] veto_count=1, pass_count=0\n\n▶ veto技术面双空头\n  [PASS] veto_count=1, reasons=['技术面: 均线空头+MACD死叉共振']\n\n▶ pass正常股票\n  [PASS] veto_count=0, pass_count=1\n\n▶ pass资金流None\n  [PASS] pass_count=1, veto_count=0\n\n▶ 单只失败不影响其他\n  [PASS] vetoed=['600519', '600036'], passed=['300750']\n\n▶ empty_stocks\n  [PASS] empty: veto_count=0, pass_count=0\n\n▶ missing_moneyflow_data_key\n  [PASS] missing key: veto_count=1\n\n▶ moneyflow_data空字典\n  [PASS] empty dict: pass_count=1\n\n============================================================\n结果: 8/8 通过, 0 失败\n============================================================\n"
+        },
+        {
+          "file": "test_portfolio_optimizer.py",
+          "passed": 0,
+          "failed": 0,
+          "elapsed": 1.4645459651947021,
+          "result_line": "",
+          "success": true,
+          "output": "Optimizer.test_initialization_with_market_caps) ... ok\ntest_optimize_with_views (__main__.TestBlackLittermanOptimizer.test_optimize_with_views) ... ok\ntest_optimize_without_views (__main__.TestBlackLittermanOptimizer.test_optimize_without_views) ... ok\ntest_set_views (__main__.TestBlackLittermanOptimizer.test_set_views) ... ok\ntest_compute_from_returns (__main__.TestEnhancedKellyCalculator.test_compute_from_returns) ... ok\ntest_compute_with_given_params (__main__.TestEnhancedKellyCalculator.test_compute_with_given_params) ... ok\ntest_fractional_kelly_upper_bound (__main__.TestEnhancedKellyCalculator.test_fractional_kelly_upper_bound) ... ok\ntest_initialization_with_returns (__main__.TestEnhancedKellyCalculator.test_initialization_with_returns) ... ok\ntest_summary (__main__.TestEnhancedKellyCalculator.test_summary) ... ok\ntest_initialization (__main__.TestHRPOptimizer.test_initialization) ... ok\ntest_optimize (__main__.TestHRPOptimizer.test_optimize) ... ok\ntest_efficient_frontier (__main__.TestMarkowitzOptimizer.test_efficient_frontier) ... ok\ntest_initialization (__main__.TestMarkowitzOptimizer.test_initialization) ... ok\ntest_max_sharpe_weights (__main__.TestMarkowitzOptimizer.test_max_sharpe_weights) ... ok\ntest_min_variance_weights (__main__.TestMarkowitzOptimizer.test_min_variance_weights) ... ok\ntest_optimize_default (__main__.TestMarkowitzOptimizer.test_optimize_default) ... ok\ntest_all_optimizers_on_same_data (__main__.TestPortfolioOptimizerIntegration.test_all_optimizers_on_same_data)\n同一数据集上运行所有优化器 ... ok\ntest_kelly_sizing_integration (__main__.TestPortfolioOptimizerIntegration.test_kelly_sizing_integration)\n测试凯利仓位计算 ... ok\ntest_initialization (__main__.TestRiskParityOptimizer.test_initialization) ... ok\ntest_optimize (__main__.TestRiskParityOptimizer.test_optimize) ... ok\ntest_risk_contribution (__main__.TestRiskParityOptimizer.test_risk_contribution) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.173s\n\nOK\n"
+        }
+      ],
+      "total_passed": 19,
+      "total_failed": 0,
+      "total_elapsed": 2.9321539402008057
+    },
+    {
+      "layer": "L3_persona",
+      "files": 1,
+      "results": [
+        {
+          "file": "test_l3_persona_runner.py",
+          "passed": 5,
+          "failed": 0,
+          "elapsed": 212.44776225090027,
+          "result_line": "Batch batch1 结果: 5/5 通过",
+          "success": true,
+          "output": "']\n  [入参]\n    personas=['ackman', 'pabrai', 'lynch', 'cathie_wood', 'munger']\n    run_mode=independent\n  [预期结果]\n    ackman: score(0~1), verdict(BUY/WATCH/REJECT/HOLD/''), rationale非空\n    pabrai: score(0~1), verdict(BUY/WATCH/REJECT/HOLD/''), rationale非空\n    lynch: score(0~1), verdict(BUY/WATCH/REJECT/HOLD/''), rationale非空\n    cathie_wood: score(0~1), verdict(BUY/WATCH/REJECT/HOLD/''), rationale非空\n    munger: score(0~1), verdict(BUY/WATCH/REJECT/HOLD/''), rationale非空\n  [执行过程]\n  [出参]\n    _status='ok', elapsed=56.539s\n    ackman: score=0.3, verdict='WATCH', grade='C', rationale=贵州茅台业务质量卓越（ROE28.5%、毛利率91.5%），但作为国企背景缺乏A...\n    pabrai: score=0.22, verdict='WATCH', grade='B', rationale=茅台是顶级业务但当前价位安全边际仅16%，未达到Pabrai的50%安全边际标准...\n    lynch: score=0.35, verdict='HOLD', grade='B', rationale=茅台是典型slow_forever稳定增长股，基本面无可挑剔但PEG=1.47偏...\n    cathie_wood: score=0.12, verdict='REJECT', grade='C', rationale=贵州茅台是典型的传统消费品公司，完全不属于伍德偏好的破坏性创新类别。白酒行业已处...\n    munger: score=0.82, verdict='BUY', grade='A', rationale=茅台是典型的芒格式伟大公司：护城河极深且持续加深，ROE高达28.5%创造卓越复...\n  [断言]\n  Batch batch2 结果: 5/5 通过\n\n  --- Batch batch3: ['phil_fisher', 'jhunjhunwala']\n  [入参]\n    personas=['phil_fisher', 'jhunjhunwala']\n    run_mode=independent\n  [预期结果]\n    phil_fisher: score(0~1), verdict(BUY/WATCH/REJECT/HOLD/''), rationale非空\n    jhunjhunwala: score(0~1), verdict(BUY/WATCH/REJECT/HOLD/''), rationale非空\n  [执行过程]\n  [出参]\n    _status='ok', elapsed=23.653s\n    phil_fisher: score=0.45, verdict='WATCH', grade='B', rationale=茅台拥有极深的护城河、卓越的利润质量和极强的品牌定价权，但其15%营收增速属于稳...\n    jhunjhunwala: score=0.88, verdict='BUY', grade='A', rationale=茅台完美符合金君瓦拉大牛股标准：顶级品牌+定价权+高ROE 28%+低负债+内需...\n  [断言]\n  Batch batch3 结果: 2/2 通过\n  [出参]\n    total_passed=12/12, total_failed=0/12\n  [断言]\n  [PASS] 全部 12 种人格测试通过\n\n============================================================\n[总体预期结果]\n  全部 6 个测试用例预期 PASS\n  实际: 6/6 通过, 0 失败\n  ✅ 全部通过\n============================================================\nAPI Key 未设置（model_config.json 或 MINIMAX_CN_API_KEY），跳过人格轨分析\n"
+        }
+      ],
+      "total_passed": 5,
+      "total_failed": 0,
+      "total_elapsed": 212.44776225090027
+    },
+    {
+      "layer": "L4",
+      "files": 1,
+      "results": [
+        {
+          "file": "test_l4_runner.py",
+          "passed": 4,
+          "failed": 0,
+          "elapsed": 0.0,
+          "result_line": "4 通过, 0 失败",
+          "success": true,
+          "output": "t_l4_runner::judge_components ▶ START\n[TEST] test_l4_runner::judge_components ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner::quality_degraded_lowers_score ▶ START\n[TEST] test_l4_runner::quality_degraded_lowers_score ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner::decision_thresholds ▶ START\n[TEST] test_l4_runner::decision_thresholds ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner ▶ END  passed=4 failed=0 elapsed=0.0s  status=PASS\n============================================================\nL4 Judge Runner 测试\n============================================================\n\n============================================================\n▶ run_risk_judgment\n  [PASS] decision=BUY, judge_score=0.567, risk_score=22, risk_level=normal, weight=0.0993, stop_loss=-0.08%, take_profit=0.2%\n\n============================================================\n▶ judge_components\n  [PASS] veto=0.720×0.5 + debate=0.495×0.25 + persona=0.333×0.25 = 0.567\n\n============================================================\n▶ quality_degraded_lowers_score\n  [PASS] degraded(0.510) <= ok(0.567)\n\n============================================================\n▶ decision_thresholds\n  [PASS] score=80 → decision=BUY (judge_score=0.607)\n\n============================================================\n结果: 4/4 通过, 0 失败\n============================================================\n[TEST] test_l4_runner ▶ START  tests=4\n[TEST] test_l4_runner::run_risk_judgment ▶ START\n[TEST] test_l4_runner::run_risk_judgment ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner::judge_components ▶ START\n[TEST] test_l4_runner::judge_components ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner::quality_degraded_lowers_score ▶ START\n[TEST] test_l4_runner::quality_degraded_lowers_score ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner::decision_thresholds ▶ START\n[TEST] test_l4_runner::decision_thresholds ▶ END  elapsed=0.0s  status=PASS\n[TEST] test_l4_runner ▶ END  passed=4 failed=0 elapsed=0.0s  status=PASS\n"
+        }
+      ],
+      "total_passed": 4,
+      "total_failed": 0,
+      "total_elapsed": 0.0
+    },
+    {
+      "layer": "L5",
+      "files": 2,
+      "results": [
+        {
+          "file": "test_l5_freeze_manager.py",
+          "passed": 16,
+          "failed": 0,
+          "elapsed": 0.16010427474975586,
+          "result_line": "16 通过, 0 失败",
+          "success": true,
+          "output": "et: set()\n  [PASS] 摘要正确: {'frozen_count': 0, 'observing_count': 0, 'buy_signals_count': 0, 'frozen_codes': [], 'next_check': None}\n  [PASS] 初始化: freeze_table 结构正确\n\n============================================================\n▶ TestFreezeManagerFreeze\n============================================================\n  [PASS] 重复添加正确拒绝\n  [PASS] 添加10天冷冻成功\n  [PASS] 添加3个月冷冻成功\n  [PASS] 无效级别正确拒绝\n\n============================================================\n▶ TestFreezeManagerUnfreeze\n============================================================\n  [PASS] 解冻功能正常\n  [PASS] 不存在股票正确拒绝\n\n============================================================\n▶ TestFreezeManagerSummary\n============================================================\n  [PASS] 摘要正确: {'frozen_count': 2, 'observing_count': 0, 'buy_signals_count': 0, 'frozen_codes': ['600519', '000333'], 'next_check': '2026-06-10'}\n\n============================================================\n▶ TestFreezeManagerRecordBuySignal\n============================================================\n  [PASS] 买入信号记录成功\n\n============================================================\n▶ TestFreezeManagerMultiMarket\n============================================================\n  [PASS] CN 路径: /Users/guchuang/.hermes/investment/main/freeze_table.json\n  [PASS] HK 路径: /Users/guchuang/.hermes/investment/main/freeze_table_hk.json\n  [PASS] US 路径: /Users/guchuang/.hermes/investment/main/freeze_table_us.json\n\n============================================================\n▶ TestFreezeManagerConstants\n============================================================\n  [PASS] 常量正确: 10days=10 days, 0:00:00, 3months=90 days, 0:00:00\n  [PASS] 阈值正确: main_net_flow=-100000000, outer_inner=0.75\n\n============================================================\n结果: 16 通过, 0 失败\n============================================================\n600519 已在冷冻表中\n无效冷冻级别: invalid\n股票不在冷冻表中: 999999\n冷冻表加载失败: Expecting value: line 1 column 1 (char 0)，返回空表\n冷冻表加载失败: Expecting value: line 1 column 1 (char 0)，返回空表\n"
+        },
+        {
+          "file": "test_l5_review_engine.py",
+          "passed": 14,
+          "failed": 0,
+          "elapsed": 0.22574090957641602,
+          "result_line": "14 通过, 0 失败",
+          "success": false,
+          "output": "gine' has no attribute 'TRACKER_FILE'\n  [ERROR] test_effectiveness_empty: AttributeError: type object 'ReviewEngine' has no attribute 'TRACKER_FILE'\n  [ERROR] test_effectiveness_reject_drop: AttributeError: type object 'ReviewEngine' has no attribute 'TRACKER_FILE'\n  [ERROR] test_effectiveness_watch_upgrade: AttributeError: type object 'ReviewEngine' has no attribute 'TRACKER_FILE'\n  [ERROR] test_effectiveness_win_loss_ratio: AttributeError: type object 'ReviewEngine' has no attribute 'TRACKER_FILE'\n\n============================================================\n▶ TestCPCVValidation\n============================================================\n  [PASS] hit_rate_train=50.0%, hit_rate_val=50.0%, delta=0.0%\n  [PASS] 交易数<折数时返回 None\n  [PASS] 空交易返回 None\n  [PASS] PBO=0.0%, avg_overfit=0.00%\n  [PASS] return_train=7.50%, return_val=7.50%\n  [PASS] CPCV verdict=FAIL, PBO=100.0%, hit_delta=0.0%\n\n============================================================\n▶ TestDataclasses\n============================================================\n  [PASS] CPCVResult 序列化正确\n  [PASS] DecisionRecord 序列化正确\n  [PASS] EffectivenessMetrics 序列化正确\n  [PASS] OutcomeRecord 序列化正确\n  [PASS] TradeRecord 序列化正确\n\n============================================================\n▶ TestReviewRun\n============================================================\n  [PASS] 空交易返回 no_trades 状态\n  [PASS] 模式识别正确: ['P001']\n  [PASS] run_review 结果正确: win_rate=50.0%, 分析条目=6\n\n============================================================\n▶ TestMultiMarket\n============================================================\n  [ERROR] test_market_cn: AttributeError: type object 'ReviewEngine' has no attribute 'TRACKER_FILE'\n  [ERROR] test_market_uppercase_normalize: AttributeError: type object 'ReviewEngine' has no attribute 'TRACKER_FILE'\n\n============================================================\n结果: 14 通过, 12 失败\n============================================================\n交易数量(3)少于折数(5)，跳过CPCV\n交易数量(0)少于折数(5)，跳过CPCV\n没有交易记录可复盘\n交易数量(3)少于折数(5)，跳过CPCV\n"
+        }
+      ],
+      "total_passed": 30,
+      "total_failed": 0,
+      "total_elapsed": 0.3858451843261719
     }
   ],
   "summary": {
-    "total_passed": 0,
+    "total_passed": 78,
     "total_failed": 0,
-    "total_elapsed": 151.33363819122314
+    "total_elapsed": 408.36576137542727
   }
 }

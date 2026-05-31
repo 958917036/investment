@@ -25,17 +25,32 @@ main/
 │   ├── l3.py               # L3StockResult / L3Result
 │   ├── l4.py               # L4Decision / L4Result
 │   └── l5.py               # DecisionRecord / FreezeState 等
+├── records/                # 每日运行结果（按日期组织）
+│   └── {date}/             # 日期目录（如 2026-05-31/）
+│       ├── index.json      # 股票索引（按code聚合历史）
+│       ├── L1_candidates.json
+│       ├── L2_data.json
+│       ├── L3_analysis.json
+│       ├── L4_decision.json
+│       └── report.md
+├── state_pool/             # 股票状态池
+│   ├── frozen/            # 冷冻股票 markdown 文件
+│   └── observing/          # 观察股票 markdown 文件
 ├── l1_runner.py            # L1 调度（调用 L1_screener/l1_runner）
 ├── l2_runner.py            # L2 调度（调用 L2_data_enrich/l2_runner）
 ├── l3_runner.py            # L3 调度（调用 L3_quant_analysis/l3_quant_runner）
 ├── l4_runner.py            # L4 调度（调用 L4_judge/l4_runner）
 ├── l5_runner.py            # L5 调度（调用 L5_post_review/review_engine）
 ├── shennong.py             # CLI 入口 + pipeline 编排（for 循环 L1→L2→...→L5）
+├── batch_runner.py         # 独立批处理运行器（断点恢复）
 ├── db_writer.py            # 写入 platform 数据库（analysis_records）
+├── cache_manager.py        # 缓存管理
 ├── utils/
 │   └── logger.py           # 统一日志工具（L1~L5 共用）
 ├── config/                 # 配置文件（各层配置汇总于此）
-├── freeze_table.json       # 冷冻股名单（L5 终审用）
+├── freeze_table.json       # 冷冻股名单 CN（L5 终审用）
+├── freeze_table_hk.json    # 冷冻股名单 HK
+├── freeze_table_us.json    # 冷冻股名单 US
 └── shennong-run.sh         # shell 入口
 ```
 
@@ -140,6 +155,25 @@ write_decision(stock_code="600519", stock_name="贵州茅台", ...)
 4. **结果层层累积**：ctx.l1_result → ctx.l2_result → ... → ctx.l5_result
 5. **数据契约统一**：所有层用 `contracts/` 下的 dataclass，不混用 dict
 6. **DB 非阻塞写入**：db_writer 失败不影响主流程
+7. **三市场冷冻表**：freeze_table.json（CN）、freeze_table_hk.json（HK）、freeze_table_us.json（US）
+
+### 配置文件清单（main/config/）
+
+| 文件 | 用途 |
+|---|---|
+| `l1_config.json` | L1 全局配置（prefilter/signals/cn/hk/us 参数） |
+| `l1_screener_params.json` | L1 筛选参数（备用） |
+| `l2_config.json` | L2 采集批大小/超时/最大股数 |
+| `l2_data_validation.json` | L2 数据校验规则 |
+| `l2_money_flow_rules.json` | L2 资金流计算规则 |
+| `l3_config.json` | L3 五维权重/辩论参数 |
+| `l3_weights.json` | L3 评分权重配置 |
+| `l3_persona_config.json` | L3 人格大师列表/API 参数 |
+| `l4_weights.json` | L4 裁决权重（veto/debate/persona） |
+| `l4_risk_config.json` | L4 风控参数（止损/止盈/Kelly上限等） |
+| `l4_batch_config.json` | L4 批处理配置 |
+| `model_config.json` | LLM 模型配置 |
+| `review_pending/*.json` | 待审批复盘结果 + 调参建议 |
 
 ## 5. 自检清单
 

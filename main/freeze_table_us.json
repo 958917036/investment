@@ -1,0 +1,8 @@
+# 美股冷冻表 - L5复盘层唯一写入，执行层只读
+{
+  "_comment": "美股冷冻表 - 结构同 freeze_table.json（CN版）",
+  "_schema_version": "1.0",
+  "freeze_records": [],
+  "observing_list": [],
+  "buy_signals": []
+}

@@ -38,10 +38,17 @@ def _ts():
 
 
 def _log(msg: str):
-    """同时写入 hermes.log 和 stdout"""
+    """同时写入 hermes.log 和 real stdout（绕过 sys.stdout 重定向）"""
     _get_logger().info(msg)
-    print(msg)
-    sys.stdout.flush()
+    # 直接用 os.write 写原始 fd，绕过测试的 sys.stdout 重定向
+    try:
+        os.write(1, (msg + "\n").encode("utf-8"))
+    except Exception:
+        pass
+    try:
+        os.write(2, (msg + "\n").encode("utf-8"))
+    except Exception:
+        pass
 
 
 def suite_start(suite_name: str, total_tests: int):
